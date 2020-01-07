@@ -1,5 +1,15 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+body {
+    box-sizing: inherit;
+}
+
 .container {
-    display: grid;
+    /* display: grid;
     grid-template-areas: "header header"
                           "nav main ";
     grid-template-columns: minmax(min-content, 200px) 1fr ;
@@ -7,32 +17,17 @@
     grid-gap: 30px;
     width: 1180px;
     height: 80vh;
-    margin: auto;
+    margin: auto; */
+    display: grid;
+    height: 130vh;
+    grid-template-rows: 50px 1fr;
+    grid-template-columns: minmax(max-content, 170px) 1fr;
+    grid-template-areas: "header header"
+                          "nav profile";
 }
 
 
 
-.nav {
-    background-color: rgb(88, 29, 29);
-    grid-area: nav;
-    
-}
-
-.nav__link {
-    display: block;
-    text-decoration: none;
-    color: azure;
-    font-size: 24px;
-    text-align: center;
-}
-
-.nav__link:not(:last-child) {
-    margin-bottom: 10px;
-}
 
 
-.main {
-    background-color: rgb(53, 0, 0);
-    grid-area: main;
-   
-}
+

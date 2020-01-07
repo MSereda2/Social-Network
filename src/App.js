@@ -1,20 +1,18 @@
 import React from 'react';
 import './App.css';
 
-import Header from "./components/header/Header.component";
-import Nav from "./components/nav/Nav.component";
-import Profile from "./components/profile/Profile.component";
-
-
+import Header from './components/header/Header.component';
+import Nav from './components/navigation/Nav.component';
+import Profile from './components/profile/Profile.component';
 
 
 const App = () => {
     
     return(
         <div className="container">
-            <Header />
-            <Nav />
-            <Profile />
+           <Header />
+           <Nav />
+           <Profile />
         </div>
         
     )
