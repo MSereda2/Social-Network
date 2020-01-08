@@ -1,11 +1,11 @@
 import React from "react";
-import style from './postWraper.module.css';
+import style from './postContainer.module.css';
 import PostCreate from './postCreate/PostCreate.component';
 import PostItem from './postItem/PostItem.component';
 
 
 
-const postWraper = () => {
+const PostContainer = () => {
     return(
         <div className={style.post}>
             <PostCreate />
@@ -14,4 +14,4 @@ const postWraper = () => {
     )
 }
 
-export default postWraper;
+export default PostContainer;

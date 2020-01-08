@@ -1,8 +1,9 @@
 import React from 'react';
 import style from './profile.module.css';
-import PostWraper from './postWraper/PostWraper.component';
+import PostContainer from './postContainer/PostContainer.component'
 import ProfileBack from './profileBackground/profileBack.component';
 import ProfileImg from './profileImage/ProfileImg.component';
+import ProfileInfo from './profileInfo/profileInfo.component';
 
 
 const Profile = () => {
@@ -10,7 +11,8 @@ const Profile = () => {
         <main className={style.profile}>
             <ProfileBack />
             <ProfileImg />
-            <PostWraper />
+            <ProfileInfo />
+            <PostContainer />
         </main>
     )
 }

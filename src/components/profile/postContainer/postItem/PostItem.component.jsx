@@ -17,10 +17,10 @@ const PostItem = () => {
                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Et aspernatur unde dolor explicabo commodi repellendus neque iure eaque hic eos illum distinctio similique nihil, odit at recusandae. Dolorum, dicta non.
                     </div>
                     <div className={style.postItem__bottom}>
-                       <div className={style.postItem__bottom_coment}>11</div>
+                       <div className={style.postItem__bottom_coment}><i className="fa fa-inbox"></i>11</div>
                        <div className={style.postItem__bottom_box}>
-                           <span>23</span>
-                           <span>28</span>
+                           <span><i className="fa fa-heart"></i>23</span>
+                           <span><i className="fa fa-share"></i>28</span>
                        </div>
                     </div>
                 </div>

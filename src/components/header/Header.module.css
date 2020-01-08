@@ -1,5 +1,35 @@
 .header {
-    background-color: rgb(51, 18, 199);
+    background-color: rgb(238, 238, 238);
     grid-area: header;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #000;
 }
 
+.heading {
+    font-weight: 300;
+    padding-left: 10px;
+}
+
+.header_boxIcons {
+    display: flex;
+    justify-content: space-between;
+    width: 250px;
+    align-items: center;
+}
+
+.header__link {
+    display: block;
+    color: rgb(19, 18, 18);
+    text-decoration: none;
+    /* padding: 0 10px; */
+    font-size: 20px;
+}
+
+.header__icon {
+    display: block;
+    font-size: 20px;
+    cursor: pointer;
+    /* padding: 0 10px; */
+}

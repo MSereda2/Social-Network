@@ -3,7 +3,8 @@
     margin-top: 70px;
     display: flex;
     flex-direction: column;
-    background-color: antiquewhite;
+    background-color: rgb(231, 231, 231);
+    border-radius: 30px;
 }
 
 .postItem__top {
