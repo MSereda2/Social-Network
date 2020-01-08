@@ -1,0 +1,43 @@
+.post__create input {
+    /* height: 120px; */
+    padding-top: 20px;
+    padding-bottom: 100px;
+    padding-left: 15px;
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+   
+}
+
+.post__create input:focus {
+    outline: none;
+}
+
+.post__create p {
+    font-size: 25px;
+    font-style: italic;
+    color: rgb(88, 88, 87);
+    padding-bottom: 15px;
+}
+
+.post__create input[type="text"] {
+    color: rgb(46, 46, 46);
+    font-style: italic;
+    
+}
+
+.post__create_icons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: -30px;
+    padding-left: 10px;
+    padding-right: 10px;
+   
+}
+
+.post__create_icons i {
+   
+    font-size: 20px;
+    color: rgb(63, 62, 62);
+}

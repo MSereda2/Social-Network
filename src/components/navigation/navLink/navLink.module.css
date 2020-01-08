@@ -1,0 +1,11 @@
+.navBar__link {
+    text-decoration: none;
+    color: black;
+    margin-bottom: 15px;
+    font-size: 27px;
+    font-weight: 300;
+}
+
+.navBar__link i {
+    padding-right: 10px;
+}

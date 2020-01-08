@@ -1,14 +1,15 @@
 import React from 'react';
 import style from './nav.module.css';
+import NavLink from './navLink/NavLink.component';
 
 const Nav = () => {
     return(
         <nav className={style.navBar}>
-           <a className={style.navBar__link} href="#"><i className="fa fa-user"></i>Profile</a>
-           <a className={style.navBar__link} href="#"><i className="fa fa-inbox"></i>Message</a>
-           <a className={style.navBar__link} href="#"><i className="fa fa-book"></i>News</a>
-           <a className={style.navBar__link} href="#"><i className="fa fa-music"></i>Music</a>
-           <a className={style.navBar__link} href="#"><i className="fa fa-cog"></i>Settings</a>
+           <NavLink name='Profile' icon="fa fa-user" />
+           <NavLink name='Message' icon="fa fa-inbox" />
+           <NavLink name='News' icon="fa fa-book" />
+           <NavLink name='Music' icon="fa fa-music" />
+           <NavLink name='Settings' icon="fa fa-cog" />
         </nav>
     )
 }

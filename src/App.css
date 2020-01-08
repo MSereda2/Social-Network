@@ -20,7 +20,7 @@ body {
     height: 80vh;
     margin: auto; */
     display: grid;
-    height: 130vh;
+    height: min-content;
     grid-template-rows: minmax(max-content, 50px) 1fr;
     grid-template-columns: minmax(max-content, 170px) 1fr;
     grid-template-areas: "header header"
@@ -28,6 +28,10 @@ body {
 }
 
 
+.container__wraper_page {
+    background-color: rgb(238, 235, 235);
+    grid-area: profile;
+}
 
 
 
