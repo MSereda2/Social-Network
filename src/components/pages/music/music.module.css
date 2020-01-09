@@ -1,0 +1,9 @@
+.heading {
+    text-align: center;
+    color: blueviolet;
+    transition: all 2s;
+}
+
+.heading:hover {
+    color: rgb(97, 23, 54);
+}

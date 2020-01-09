@@ -5,11 +5,11 @@ import NavLink from './navLink/NavLink.component';
 const Nav = () => {
     return(
         <nav className={style.navBar}>
-           <NavLink name='Profile' icon="fa fa-user" />
-           <NavLink name='Message' icon="fa fa-inbox" />
-           <NavLink name='News' icon="fa fa-book" />
-           <NavLink name='Music' icon="fa fa-music" />
-           <NavLink name='Settings' icon="fa fa-cog" />
+           <NavLink Href="/profile" name='Profile' icon="fa fa-user" />
+           <NavLink Href="/dialogs" name='Message' icon="fa fa-inbox" />
+           <NavLink Href="/news" name='News' icon="fa fa-book" />
+           <NavLink Href="/music" name='Music' icon="fa fa-music" />
+           <NavLink Href="/settings" name='Settings' icon="fa fa-cog" />
         </nav>
     )
 }
