@@ -7,7 +7,7 @@ const DialogItemFriend = (props) => {
     return(
         <div className={style.friend_message_box}>
             <SmallImg img={props.img} />
-        <p className={style.friend__message}>{props.text}</p>
+            <p className={style.friend__message}>{props.text}</p>
         </div>
     )
 }

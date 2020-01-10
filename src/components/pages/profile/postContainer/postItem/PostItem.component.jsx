@@ -19,7 +19,7 @@ const PostItem = (props) => {
                            <span><i className="fa fa-share"></i>{props.shared}</span>
                        </div>
                     </div>
-                </div>
+        </div>
     )
 }
 

@@ -6,13 +6,12 @@
                          'list dialogs';
     /* max-height: 93vh; */
     min-height: min-content;
-    position: relative;
 }
 
 
 .list__friends {
     grid-area: list;
-    box-shadow: .9px 0px 3px rgb(73, 73, 73);
+    box-shadow: .9px 0px 2px rgb(165, 165, 165);
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
 
@@ -23,22 +22,12 @@
     height: min-content;
 }
 
-.dialogs__window_top {
-    padding: 15px 5px;
-    border-bottom: 1px solid #000;
-    background-color: rgb(230, 230, 230);
-}
-
-.dialogs__window_top p {
-    font-size: 20px;
-    font-style: italic;
-    color: rgb(10, 109, 43);
-    padding-left: 15px ;}
 
 .dialogs__window_main {
     padding: 15px;
     overflow-y: scroll;
-    height: 90vh;
+    max-height: 73vh;
+    background-color: #fff;
 }
 
 .dialogs__bottom {

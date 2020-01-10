@@ -1,13 +1,14 @@
 import React from 'react';
 import style from './friendItem.module.css';
 import SmallImg from '../../../smalImg/SmallImg.component';
+import {NavLink} from 'react-router-dom';
 
 const FriendItem = (props) => {
     return(
-        <div className={style.friend__item}>
+        <NavLink className={style.friend__item} to={props.to}>
             <SmallImg img={props.img} />
             <p className={style.friend__name}>{props.name}</p>
-        </div>
+        </NavLink>
     )
 }
 

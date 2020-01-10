@@ -1,0 +1,11 @@
+.dialogs__window_top {
+    padding: 15px 5px;
+    border-bottom: 1px solid rgb(143, 142, 142);
+    background-color: rgb(230, 227, 227);
+}
+
+.dialogs__window_top p {
+    font-size: 20px;
+    font-style: italic;
+    color: rgb(28, 196, 84);
+    padding-left: 15px ;}

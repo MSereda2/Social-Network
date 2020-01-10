@@ -44,3 +44,11 @@
 .postItem__bottom_box span {
     padding-right: 10px;
 }
+
+.postItem__bottom_box span i {
+    padding-right: 6px;
+}
+
+.postItem__bottom_coment i {
+    padding-right: 6px;
+}
