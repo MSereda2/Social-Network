@@ -1,7 +1,8 @@
 import React from 'react';
 import style from './dialogs.module.css'
 import FriendItem from '../dialogs/friendItem/FriendItem.component';
-
+import DialogItemFriend from '../dialogs/dialogItemFriend/DialogItemFriend';
+import DialogItemUser from './dialogItemUser/DialogItemUser.component';
 
 
 const Dialogs = () => {
@@ -25,19 +26,17 @@ const Dialogs = () => {
                 {/* dialogs top end */}
 
                 {/* dialogs main */}
-                <div className="dialogs__window_main">
-                    <div className="friend_message">
-                        img and text 
-                    </div>
-                    <div className="user__message">
-                        text
-                    </div>
+                <div className={style.dialogs__window_main}>
+                    <DialogItemFriend text="Слушай красавчик понакидай мне музыки пожалуйста и знай ты капец какой красивый ты самец" img="https://sun9-56.userapi.com/c626619/v626619699/52a2c/93cmNcF__Bc.jpg" />
+                    <DialogItemUser text="хахах спс я всегда знал это" img="https://sun9-3.userapi.com/c840727/v840727923/1a893/WRUMvb6PxXA.jpg" />
+                    
                 </div>
                 {/* dialogs main end */}
 
                 {/* dialogs bottom */}
-                <div className="dialogs__bottom">
-                    input and icon
+                <div className={style.dialogs__bottom}>
+                    <input type="text" placeholder="Write message..."/>
+                    <button><i className="fa fa-send"></i></button>
                 </div>
                 {/* dialogs bottom end */}
 

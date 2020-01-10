@@ -1,0 +1,16 @@
+.friend_message_box {
+    display: flex;
+    margin-bottom: 25px;
+}
+
+.friend__message {
+    width: 45%;
+    background-color: rgb(230, 229, 229);
+    padding: 12px;
+    color: rgb(36, 36, 36);
+    line-height: 1.2;
+    border-radius: 10px;
+    box-shadow: 1px 1px 3px black;
+    margin-left: 10px;
+    
+}
