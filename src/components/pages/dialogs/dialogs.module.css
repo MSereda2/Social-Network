@@ -1,3 +1,37 @@
-.heading {
-    color: rgb(173, 53, 53);
+.dialogs {
+    display: grid;
+    grid-template-columns: minmax(max-content, 240px) 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: 'list dialogs' 
+                         'list dialogs';
+    height: 92vh;
+}
+
+
+.list__friends {
+    grid-area: list;
+    box-shadow: .9px 0px 3px rgb(73, 73, 73);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+
+}
+
+.dialogs__window {
+    grid-area: dialogs;
+}
+
+.dialogs__window_top {
+    padding: 15px 5px;
+    border-bottom: 1px solid #000;
+    background-color: rgb(230, 230, 230);
+}
+
+.dialogs__window_top p {
+    font-size: 20px;
+    font-style: italic;
+    color: rgb(10, 109, 43);
+    padding-left: 15px ;}
+
+.dialogs__window_main {
+    
 }

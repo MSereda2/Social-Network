@@ -1,13 +1,11 @@
 import React from 'react';
 import style from './postItem.module.css';
-
+import SmallImg from '../../../../smalImg/SmallImg.component';
 const PostItem = (props) => {
     return(
         <div className={style.post__item}>
                     <div className={style.postItem__top}>
-                        <div className={style.postItem__boxImg}>
-                           <img className={style.postItem__image} src={props.Image} />
-                        </div>
+                           <SmallImg img={props.Image} />
                         <div className={style.post__item_textBlock}>
                             <p className={style.post__item_name}>{props.name}</p>
                             <p className={style.post__item_data}>{props.visit}</p>
