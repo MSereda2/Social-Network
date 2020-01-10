@@ -11,10 +11,10 @@ const Dialogs = () => {
         <div className={style.dialogs}>
             {/* LIST FRIENDS */}
             <div className={style.list__friends}>
-                <FriendItem name="Миша Середа" img="https://sun9-3.userapi.com/c840727/v840727923/1a893/WRUMvb6PxXA.jpg" to="/dialogs/1" />
-                <FriendItem name="Петя Михаличенко" img="https://sun9-35.userapi.com/c854428/v854428792/bec53/QJzoJ4tIamo.jpg" to="/dialogs/2" />
-                <FriendItem name="Мустафа Куртбеков" img="https://sun9-21.userapi.com/c858016/v858016505/140e94/OMRyRJ3Rngc.jpg" to="/dialogs/3" />
-                <FriendItem name="Daria zaminina" img="https://sun9-56.userapi.com/c626619/v626619699/52a2c/93cmNcF__Bc.jpg" to="/dialogs/4" />
+                <FriendItem name="Миша Середа" img="https://sun9-3.userapi.com/c840727/v840727923/1a893/WRUMvb6PxXA.jpg" id='10' />
+                <FriendItem name="Петя Михаличенко" img="https://sun9-35.userapi.com/c854428/v854428792/bec53/QJzoJ4tIamo.jpg" id='11' />
+                <FriendItem name="Мустафа Куртбеков" img="https://sun9-21.userapi.com/c858016/v858016505/140e94/OMRyRJ3Rngc.jpg" id='12' />
+                <FriendItem name="Daria zaminina" img="https://sun9-56.userapi.com/c626619/v626619699/52a2c/93cmNcF__Bc.jpg" id='13' />
             </div>
             {/* END LIST OF FRIENDS */}
 
