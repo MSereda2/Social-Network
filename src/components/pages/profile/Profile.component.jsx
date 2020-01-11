@@ -12,7 +12,7 @@ const Profile = (props) => {
             <ProfileBack />
             <ProfileImg />
             <ProfileInfo />
-            <PostContainer />
+            <PostContainer PostData={props.PostData} />
         </main>
     )
 }

@@ -23,7 +23,7 @@ const App = (props) => {
                 <Header />
                 <Nav NavData={props.NavData} />
                 <div className="container__wraper_page">
-                    <Route path="/profile" component={Profile} />
+                    <Route path="/profile" render={() => (<Profile PostData={props.PostData} />)} />
 
                     <Route path="/dialogs" render={() => (<Dialogs
                      friendsItem={props.friendsItem}
