@@ -15,16 +15,22 @@ import Settings from './components/pages/settings/Settings.component'
 
 
 
-const App = () => {
+const App = (props) => {
     
     return(
         <BrowserRouter>
             <div className="container">
                 <Header />
-                <Nav />
+                <Nav NavData={props.NavData} />
                 <div className="container__wraper_page">
                     <Route path="/profile" component={Profile} />
-                    <Route path="/dialogs" component={Dialogs} />
+
+                    <Route path="/dialogs" render={() => (<Dialogs
+                     friendsItem={props.friendsItem}
+                     ItemMessagesFriends={props.ItemMessagesFriend}
+                     ItemMessagesUsers={props.ItemMessagesUser} />)} />
+
+
                     <Route path="/news" component={News} />
                     <Route path="/music" component={Music} />
                     <Route path="/settings" component={Settings} />
@@ -35,3 +41,5 @@ const App = () => {
 }
 
 export default App;
+
+// component={Profile}

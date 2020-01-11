@@ -1,11 +1,12 @@
 .dialogs {
     display: grid;
-    grid-template-columns: minmax(max-content, 240px) 1fr;
+    grid-template-columns: minmax(min-content, 290px) 1fr;
     grid-template-rows: auto;
     grid-template-areas: 'list dialogs' 
                          'list dialogs';
     /* max-height: 93vh; */
-    min-height: min-content;
+    /* min-height: 93vh; */
+
 }
 
 
@@ -26,8 +27,9 @@
 .dialogs__window_main {
     padding: 15px;
     overflow-y: scroll;
-    max-height: 73vh;
+    /* max-height: 73vh; */
     background-color: #fff;
+    height: 73vh;
 }
 
 .dialogs__bottom {

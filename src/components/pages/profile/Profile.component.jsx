@@ -6,7 +6,7 @@ import ProfileImg from './profileImage/ProfileImg.component';
 import ProfileInfo from './profileInfo/profileInfo.component';
 
 
-const Profile = () => {
+const Profile = (props) => {
     return(
         <main className={style.profile}>
             <ProfileBack />
