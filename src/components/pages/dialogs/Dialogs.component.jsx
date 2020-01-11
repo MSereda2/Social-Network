@@ -7,10 +7,10 @@ import DialogTopWindow from './dialogsWindowTop/DialogTop.component';
 
 
 const Dialogs = (props) => {
-    const friend =  props.ItemMessagesFriends.map(message => (
+    const friend =  props.state.ItemMessagesFriends.map(message => (
         <DialogItemFriend text={message.text} img={message.img} />
     ));
-    const user = props.ItemMessagesUsers.map(message => (
+    const user = props.state.ItemMessagesUsers.map(message => (
         <DialogItemUser text={message.text} img={message.img} />
     ));
 
@@ -18,8 +18,8 @@ const Dialogs = (props) => {
         <div className={style.dialogs}>
 
             <div className={style.list__friends}>
-                {props.friendsItem.map(friend => (
-                    <FriendItem name={friend.name} img={friend.img} id={friend.id} />
+                {props.state.FriendsItemData.map(friend => (
+                    <FriendItem name={friend.name} img={friend.img} id={friend.id} url={`${friend.url}/${friend.id}`} />
                 ))}
             </div>
 

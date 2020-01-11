@@ -21,16 +21,10 @@ const App = (props) => {
         <BrowserRouter>
             <div className="container">
                 <Header />
-                <Nav NavData={props.NavData} />
+                <Nav state={props.state.navbar} />
                 <div className="container__wraper_page">
-                    <Route path="/profile" render={() => (<Profile PostData={props.PostData} />)} />
-
-                    <Route path="/dialogs" render={() => (<Dialogs
-                     friendsItem={props.friendsItem}
-                     ItemMessagesFriends={props.ItemMessagesFriend}
-                     ItemMessagesUsers={props.ItemMessagesUser} />)} />
-
-
+                    <Route path="/profile" render={() => (<Profile state={props.state.profile} />)} />
+                    <Route path="/dialogs" render={() => (<Dialogs state={props.state.dialogs} />)} />
                     <Route path="/news" component={News} />
                     <Route path="/music" component={Music} />
                     <Route path="/settings" component={Settings} />
