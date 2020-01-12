@@ -1,4 +1,6 @@
-import {renderEntireTree} from '../render';
+let renderEntireTree = () => {
+    console.log('state was changed');
+}
 const state = {
     navbar: {
         NavLinkData: [
@@ -165,6 +167,10 @@ export let sendMessage = () => {
 export let updateMessageInput = (message) => {
     state.dialogs.inputMessageValue = message;
     renderEntireTree(state);
+}
+
+export let subcriber = (observer) => {
+    renderEntireTree = observer;
 }
 
 // console.log(addPost.newPost.inputValue)
