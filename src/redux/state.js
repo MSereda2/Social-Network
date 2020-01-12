@@ -1,3 +1,4 @@
+import {renderEntireTree} from '../render';
 const state = {
     navbar: {
         NavLinkData: [
@@ -85,16 +86,19 @@ const state = {
         ],
         ItemMessagesUsers: [
             {
+                id: 1,
                 text: "хахах спс ты конечно тоже обезбашеная. Мне это нравиться",
                 img: "https://sun9-3.userapi.com/c840727/v840727923/1a893/WRUMvb6PxXA.jpg"
             },
             {
+                id: 2,
                 text: "Ок, сек.",
                 img: "https://sun9-3.userapi.com/c840727/v840727923/1a893/WRUMvb6PxXA.jpg"
             },
             
         
-        ]
+        ],
+        inputMessageValue: 'Write message...'
     },
     profile: {
         PostData: [
@@ -103,7 +107,7 @@ const state = {
                 image: "https://sun9-3.userapi.com/c840727/v840727923/1a893/WRUMvb6PxXA.jpg",
                 name: "Misha Sereda",
                 visit: "1 hour ago",
-                description: "i will be awesome React developer",
+                description: "Я хочу развить навыки соблазненич",
                 commentsCount: 25,
                 likesCount: 100,
                 sharedCount: 39
@@ -118,10 +122,52 @@ const state = {
                 likesCount: 2456,
                 sharedCount: 234
             },
-        ]
+            
+        ],
+        newTextInput: 'try to wright'
+        
     }
 };
 
+export let addPost = () => {
+    let newPost = {
+        id: 3,
+        image: 'https://muz-tv.ru/storage/pic/6/6/6673d0a96eb4c1a269fca73c1d207347.jpg',
+        name: "face",
+        visit: '50 minutes ago',
+        description: state.profile.newTextInput,
+        commentsCount: 5,
+        likesCount: 129,
+        sharedCount: 10,
+    }
+    state.profile.PostData.push(newPost);
+    state.profile.newTextInput = '';
+    renderEntireTree(state);
+
+}
+
+export let updateInputValue = (newText) => {
+    state.profile.newTextInput = newText;
+    renderEntireTree(state);
+}
+
+export let sendMessage = () => {
+    let newMessage = {
+        id: 3,
+        text: state.dialogs.inputMessageValue,
+        img: "https://sun9-3.userapi.com/c840727/v840727923/1a893/WRUMvb6PxXA.jpg"
+    }
+    state.dialogs.ItemMessagesUsers.push(newMessage);
+    state.dialogs.inputMessageValue = "";
+    renderEntireTree(state);
+}
+
+export let updateMessageInput = (message) => {
+    state.dialogs.inputMessageValue = message;
+    renderEntireTree(state);
+}
+
+// console.log(addPost.newPost.inputValue)
 export default state;
 
 

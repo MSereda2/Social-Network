@@ -12,6 +12,7 @@ const ProfileInfo = () => {
                <p className={style.profileInfoNumber}>23 Dec 1991</p>
                <p className={style.profileInfoAboutME}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab voluptatum, incidunt facilis laboriosam dignissimos sint fugiat quam ratione quod odit, consequatur dolorem blanditiis doloremque minus, consectetur numquam ducimus quaerat laborum!</p>
            </div>
+
         </div>
     )
 }

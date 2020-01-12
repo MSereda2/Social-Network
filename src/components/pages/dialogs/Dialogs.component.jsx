@@ -14,6 +14,18 @@ const Dialogs = (props) => {
         <DialogItemUser text={message.text} img={message.img} />
     ));
 
+
+    const dialogsField = React.createRef();
+
+    const sendMessage = () => { props.sendMessage(); };
+
+    const updateMessageInput = () => {
+        let text = dialogsField.current.value;
+        props.updateMessageInput(text);
+    };
+
+
+
     return(
         <div className={style.dialogs}>
 
@@ -33,8 +45,8 @@ const Dialogs = (props) => {
             </div>
 
             <div className={style.dialogs__bottom}>
-                    <input type="text" placeholder="Write message..."/>
-                    <button><i className="fa fa-send"></i></button>
+                    <input onChange={updateMessageInput} ref={dialogsField} type="text" value={props.state.inputMessageValue}/>
+                    <button onClick={sendMessage}><i className="fa fa-send"></i></button>
                 </div>
 
             </div>

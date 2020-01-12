@@ -10,7 +10,7 @@ const PostContainer = (props) => {
     ))
     return(
         <div className={style.post}>
-            <PostCreate />
+            <PostCreate messageData={props.messageData} inputvalue={props.inputValue} updateInputValue={props.updateInputValue} />
             {PostDataItem};
         </div>
     )

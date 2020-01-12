@@ -1,7 +1,7 @@
 // REACT BASE
 import React from 'react';
 import './App.css';
-import { Route, BrowserRouter } from 'react-router-dom'
+import { Route, BrowserRouter } from 'react-router-dom';
 
 
 // REACT COMPONENTS
@@ -23,8 +23,8 @@ const App = (props) => {
                 <Header />
                 <Nav state={props.state.navbar} />
                 <div className="container__wraper_page">
-                    <Route path="/profile" render={() => (<Profile state={props.state.profile} />)} />
-                    <Route path="/dialogs" render={() => (<Dialogs state={props.state.dialogs} />)} />
+                    <Route path="/profile" render={() => (<Profile state={props.state.profile} dataMessage={props.messageData} updateInputValue={props.updateInputValue} />)} />
+                    <Route path="/dialogs" render={() => (<Dialogs state={props.state.dialogs} sendMessage={props.sendMessage} updateMessageInput={props.updateMessageInput} />)} />
                     <Route path="/news" component={News} />
                     <Route path="/music" component={Music} />
                     <Route path="/settings" component={Settings} />
