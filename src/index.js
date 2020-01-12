@@ -1,4 +1,4 @@
-import state from './redux/state';
+import store from './redux/state';
 import '../node_modules/font-awesome/css/font-awesome.min.css'; 
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -8,11 +8,13 @@ import * as serviceWorker from './serviceWorker';
 import {addPost, updateInputValue, sendMessage, updateMessageInput, subcriber} from './redux/state';
 
 
-const renderEntireTree = (state) => {
-    ReactDOM.render(<App state={state} messageData={addPost} updateInputValue={updateInputValue} sendMessage={sendMessage} updateMessageInput={updateMessageInput}  />, document.getElementById('root'));
+const renderEntireTree = (store) => {
+    ReactDOM.render(<App store={store.getState()}  />, document.getElementById('root'));
 }
-renderEntireTree(state);
-subcriber(renderEntireTree); // pattern observer
+
+renderEntireTree(store);
+
+store.subcriber(renderEntireTree); // pattern observer
 
 
 
