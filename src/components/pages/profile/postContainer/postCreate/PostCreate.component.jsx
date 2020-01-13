@@ -5,7 +5,10 @@ const PostCreate = (props) => {
     const inputField = React.createRef();
     
     const addPost = () => {
-        props.messageData();        
+        if(inputField.current.value != '') {
+            props.addPost();        
+
+        }
     }
 
     const onChangeInput = () => {

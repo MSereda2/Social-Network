@@ -15,14 +15,3 @@ const Nav = (props) => {
 }
 
 export default Nav;
-
-
-
-
-
-
-          {/* <NavLinkItem to= name= icon= /> */}
-{/*            
-           <NavLinkItem to="/news" name='News' icon="fa fa-book" />
-           <NavLinkItem to="/music" name='Music' icon="fa fa-music" />
-           <NavLinkItem to="/settings" name='Settings' icon="fa fa-cog" /> */}

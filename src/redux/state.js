@@ -3,6 +3,20 @@ const store = {
         console.log('no observer')
     },
     _state: {
+        header: {
+            headerName: "Land & Word",
+            headerLink: [
+                {
+                    name: 'Цели',
+                    href: '#'
+                },
+                {
+                    name: 'Цитаты',
+                    href: '#'
+                },
+                
+            ]
+        },
         navbar: {
             NavLinkData: [
                 {

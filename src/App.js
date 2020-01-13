@@ -18,11 +18,15 @@ const App = (props) => {
     return(
         <BrowserRouter>
             <div className="container">
-                <Header />
+                <Header state={props.store.header} />
                 <Nav state={props.store.navbar} />
                 <div className="container__wraper_page">
-                    <Route path="/profile" render={() => (<Profile state={props.store.profile} dataMessage={props.store.profile.addPost} updateInputValue={props.store.profile.updateInputValue} />)} />
-                    <Route path="/dialogs" render={() => (<Dialogs state={props.store.dialogs} sendMessage={props.store.dialogs.sendMessage} updateMessageInput={props.store.dialogs.updateMessageInput} />)} />
+                    <Route path="/profile" render={() => (<Profile state={props.store.profile} />)} />
+
+                    <Route path="/dialogs" render={() => (<Dialogs 
+                    state={props.store.dialogs}
+                    sendMessage={props.store.dialogs.sendMessage}
+                    updateMessageInput={props.store.dialogs.updateMessageInput} />)} />
                     <Route path="/news" component={News} />
                     <Route path="/music" component={Music} />
                     <Route path="/settings" component={Settings} />
@@ -35,3 +39,5 @@ const App = (props) => {
 export default App;
 
 // component={Profile}
+// dataMessage={props.store.profile.addPost}
+//                      updateInputValue={props.store.profile.updateInputValue}
