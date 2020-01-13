@@ -8,7 +8,7 @@ import * as serviceWorker from './serviceWorker';
 
 
 const renderEntireTree = (store) => {
-    ReactDOM.render(<App store={store.getState()}  />, document.getElementById('root'));
+    ReactDOM.render(<App state={store.getState()} dispatch={store.dispatch.bind(store)}  />, document.getElementById('root'));
 }
 
 renderEntireTree(store);

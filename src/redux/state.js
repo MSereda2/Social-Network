@@ -157,25 +157,26 @@ const store = {
                 
             ],
             newTextInput: 'try to wright',
-            addPost() {
-                let newPost = {
-                    id: 3,
-                    image: 'https://muz-tv.ru/storage/pic/6/6/6673d0a96eb4c1a269fca73c1d207347.jpg',
-                    name: "face",
-                    visit: '50 minutes ago',
-                    description: store._state.profile.newTextInput,
-                    commentsCount: 5,
-                    likesCount: 129,
-                    sharedCount: 10,
-                }
-                store._state.profile.PostData.push(newPost);
-                store._state.profile.newTextInput = '';
-                store.subcriber(store);
-            },
-            updateInputValue(newText) {
-                store._state.profile.newTextInput = newText;
-                store.subcriber(store);
+        }
+    },
+    dispatch(action) {
+        if(action.type === 'ADD-POST') {
+            let newPost = {
+                id: 3,
+                image: 'https://muz-tv.ru/storage/pic/6/6/6673d0a96eb4c1a269fca73c1d207347.jpg',
+                name: "face",
+                visit: '50 minutes ago',
+                description: store._state.profile.newTextInput,
+                commentsCount: 5,
+                likesCount: 129,
+                sharedCount: 10,
             }
+            this._state.profile.PostData.push(newPost);
+            this._state.profile.newTextInput = '';
+            this.subcriber(this);
+        } else if(action.type === 'UPDATE-INPUT-VALUE') {
+            this._state.profile.newTextInput = action.text;
+            this.subcriber(this);
         }
     },
     getState() {

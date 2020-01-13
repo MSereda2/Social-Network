@@ -6,14 +6,14 @@ const PostCreate = (props) => {
     
     const addPost = () => {
         if(inputField.current.value != '') {
-            props.addPost();        
-
+            props.dispatch({type: 'ADD-POST'});        
         }
     }
 
     const onChangeInput = () => {
         let text = inputField.current.value;
-        props.updateInputValue(text);
+        props.dispatch({type: 'UPDATE-INPUT-VALUE',
+                        text: text})
     }
     return(
         <div className={style.post__create}>

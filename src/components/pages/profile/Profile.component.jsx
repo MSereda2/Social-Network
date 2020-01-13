@@ -11,7 +11,7 @@ const Profile = (props) => {
             <ProfileBack />
             <ProfileImg />
             <ProfileInfo />
-            <PostContainer inputValue={props.state.newTextInput} PostData={props.state.PostData} addPost={props.state.addPost} updateInputValue={props.state.updateInputValue} />
+            <PostContainer inputValue={props.state.newTextInput} PostData={props.state.PostData} dispatch={props.dispatch} />
         </main>
     )
 }

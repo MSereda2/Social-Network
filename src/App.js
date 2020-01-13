@@ -18,15 +18,16 @@ const App = (props) => {
     return(
         <BrowserRouter>
             <div className="container">
-                <Header state={props.store.header} />
-                <Nav state={props.store.navbar} />
+                <Header state={props.state.header} />
+                <Nav state={props.state.navbar} />
                 <div className="container__wraper_page">
-                    <Route path="/profile" render={() => (<Profile state={props.store.profile} />)} />
+                    <Route path="/profile" render={() => (<Profile
+                     state={props.state.profile}
+                     dispatch={props.dispatch} />)} />
 
                     <Route path="/dialogs" render={() => (<Dialogs 
-                    state={props.store.dialogs}
-                    sendMessage={props.store.dialogs.sendMessage}
-                    updateMessageInput={props.store.dialogs.updateMessageInput} />)} />
+                    state={props.state.dialogs}
+                    dispatch={props.dispatch} />)} />
                     <Route path="/news" component={News} />
                     <Route path="/music" component={Music} />
                     <Route path="/settings" component={Settings} />
