@@ -4,6 +4,7 @@ import FriendItem from '../dialogs/friendItem/FriendItem.component';
 import DialogItemFriend from '../dialogs/dialogItemFriend/DialogItemFriend';
 import DialogItemUser from './dialogItemUser/DialogItemUser.component';
 import DialogTopWindow from './dialogsWindowTop/DialogTop.component';
+import {sendMessageActionCreate, updateMessageInputActionCreate} from '../../../redux/state';
 
 
 const Dialogs = (props) => {
@@ -17,11 +18,11 @@ const Dialogs = (props) => {
 
     const dialogsField = React.createRef();
 
-    const sendMessage = () => { props.sendMessage(); };
+    const sendMessage = () => { props.dispatch(sendMessageActionCreate()) };
 
     const updateMessageInput = () => {
         let text = dialogsField.current.value;
-        props.updateMessageInput(text);
+        props.dispatch(updateMessageInputActionCreate(text));
     };
 
 

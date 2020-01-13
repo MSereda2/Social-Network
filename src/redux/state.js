@@ -1,3 +1,8 @@
+const addpostType = 'ADD-POST';
+const onChangeInputType = 'UPDATE-INPUT-VALUE';
+const sendMessageType = 'SEND-MESSAGE';
+const updateMessageType = 'UPDATE-MESSSAGE-INPUT';
+
 const store = {
     _subscriber() {
         console.log('no observer')
@@ -117,18 +122,9 @@ const store = {
             ],
             inputMessageValue: 'Write message...',
             sendMessage() {
-                let newMessage = {
-                    id: 3,
-                    text: store._state.dialogs.inputMessageValue,
-                    img: "https://sun9-3.userapi.com/c840727/v840727923/1a893/WRUMvb6PxXA.jpg"
-                }
-                store._state.dialogs.ItemMessagesUsers.push(newMessage);
-                store._state.dialogs.inputMessageValue = "";
-                store.subcriber(store);
             },
             updateMessageInput(message) {
-                store._state.dialogs.inputMessageValue = message;
-                store.subcriber(store);
+               
             }
           
         },
@@ -166,7 +162,7 @@ const store = {
                 image: 'https://muz-tv.ru/storage/pic/6/6/6673d0a96eb4c1a269fca73c1d207347.jpg',
                 name: "face",
                 visit: '50 minutes ago',
-                description: store._state.profile.newTextInput,
+                description: this._state.profile.newTextInput,
                 commentsCount: 5,
                 likesCount: 129,
                 sharedCount: 10,
@@ -177,6 +173,18 @@ const store = {
         } else if(action.type === 'UPDATE-INPUT-VALUE') {
             this._state.profile.newTextInput = action.text;
             this.subcriber(this);
+        } else if(action.type === 'SEND-MESSAGE') {
+            let newMessage = {
+                id: 3,
+                text: this._state.dialogs.inputMessageValue,
+                img: "https://sun9-3.userapi.com/c840727/v840727923/1a893/WRUMvb6PxXA.jpg"
+            }
+            this._state.dialogs.ItemMessagesUsers.push(newMessage);
+            this._state.dialogs.inputMessageValue = "";
+            this.subcriber(this);
+        } else if(action.type === 'UPDATE-MESSSAGE-INPUT') {
+            this._state.dialogs.inputMessageValue = action.message;
+            this.subcriber(this);
         }
     },
     getState() {
@@ -186,7 +194,25 @@ const store = {
         this.subcriber = observer
     }
 }
-// console.log(addPost.newPost.inputValue)
+
+export const addPostActionCreate = () => (
+    {type: addpostType }
+);
+
+export const onChangeInputActionCreate = (text) => (
+    {type: onChangeInputType,
+     text: text
+    }
+);
+
+export const sendMessageActionCreate = () => (
+     {type: sendMessageType }
+);
+
+export const updateMessageInputActionCreate = (text) => (
+    {type: updateMessageType, message: text}
+)
+
 export default store;
 
 

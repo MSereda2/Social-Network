@@ -1,19 +1,21 @@
 import React from 'react';
 import style from "./postCreate.module.css";
+import {addPostActionCreate,onChangeInputActionCreate} from '../../../../../redux/state';
+
 
 const PostCreate = (props) => {
+
     const inputField = React.createRef();
     
     const addPost = () => {
         if(inputField.current.value != '') {
-            props.dispatch({type: 'ADD-POST'});        
+            props.dispatch(addPostActionCreate());     
         }
     }
 
     const onChangeInput = () => {
         let text = inputField.current.value;
-        props.dispatch({type: 'UPDATE-INPUT-VALUE',
-                        text: text})
+        props.dispatch(onChangeInputActionCreate(text))
     }
     return(
         <div className={style.post__create}>
