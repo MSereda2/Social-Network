@@ -15,13 +15,15 @@ const Dialogs = (props) => {
         <DialogItemUser text={message.text} img={message.img} />
     ));
 
+    
+    const sendMessage = () => {
+        if(props.state.inputMessageValue) {
+            props.dispatch(sendMessageActionCreate()) 
+        }
+    };
 
-    const dialogsField = React.createRef();
-
-    const sendMessage = () => { props.dispatch(sendMessageActionCreate()) };
-
-    const updateMessageInput = () => {
-        let text = dialogsField.current.value;
+    const updateMessageInput = (event) => {
+        let text = event.target.value;
         props.dispatch(updateMessageInputActionCreate(text));
     };
 
@@ -46,7 +48,7 @@ const Dialogs = (props) => {
             </div>
 
             <div className={style.dialogs__bottom}>
-                    <input onChange={updateMessageInput} ref={dialogsField} type="text" value={props.state.inputMessageValue}/>
+                    <input onChange={updateMessageInput} placeholder="what's on your mind?" type="text" value={props.state.inputMessageValue}/>
                     <button onClick={sendMessage}><i className="fa fa-send"></i></button>
                 </div>
 

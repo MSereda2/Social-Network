@@ -4,23 +4,20 @@ import {addPostActionCreate,onChangeInputActionCreate} from '../../../../../redu
 
 
 const PostCreate = (props) => {
-
-    const inputField = React.createRef();
-    
     const addPost = () => {
-        if(inputField.current.value != '') {
+        if(props.inputvalue != '') {
             props.dispatch(addPostActionCreate());     
         }
     }
 
-    const onChangeInput = () => {
-        let text = inputField.current.value;
+    const onChangeInput = (event) => {
+        let text = event.target.value;
         props.dispatch(onChangeInputActionCreate(text))
     }
     return(
         <div className={style.post__create}>
             <p>Создать пост</p>
-            <input ref={inputField} onChange={onChangeInput} type="text" value={props.inputvalue}/>
+            <input  onChange={onChangeInput} placeholder="What's on your mind?" type="text" value={props.inputvalue}/>
             <div className={style.post__create_icons}>
                 <button><i className="fa fa-image"></i></button>
                 <button onClick={addPost}><i className="fa fa-send"></i></button>

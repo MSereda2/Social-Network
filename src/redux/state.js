@@ -1,7 +1,10 @@
+import profile_reducer from './profile_reducer';
+import dialogs_reducer from './dialogs_reducer';
 const addpostType = 'ADD-POST';
 const onChangeInputType = 'UPDATE-INPUT-VALUE';
 const sendMessageType = 'SEND-MESSAGE';
 const updateMessageType = 'UPDATE-MESSSAGE-INPUT';
+
 
 const store = {
     _subscriber() {
@@ -120,7 +123,7 @@ const store = {
                 
             
             ],
-            inputMessageValue: 'Write message...',
+            inputMessageValue: '',
             sendMessage() {
             },
             updateMessageInput(message) {
@@ -152,46 +155,19 @@ const store = {
                 },
                 
             ],
-            newTextInput: 'try to wright',
+            newTextInput: '',
         }
     },
     dispatch(action) {
-        if(action.type === 'ADD-POST') {
-            let newPost = {
-                id: 3,
-                image: 'https://muz-tv.ru/storage/pic/6/6/6673d0a96eb4c1a269fca73c1d207347.jpg',
-                name: "face",
-                visit: '50 minutes ago',
-                description: this._state.profile.newTextInput,
-                commentsCount: 5,
-                likesCount: 129,
-                sharedCount: 10,
-            }
-            this._state.profile.PostData.push(newPost);
-            this._state.profile.newTextInput = '';
-            this.subcriber(this);
-        } else if(action.type === 'UPDATE-INPUT-VALUE') {
-            this._state.profile.newTextInput = action.text;
-            this.subcriber(this);
-        } else if(action.type === 'SEND-MESSAGE') {
-            let newMessage = {
-                id: 3,
-                text: this._state.dialogs.inputMessageValue,
-                img: "https://sun9-3.userapi.com/c840727/v840727923/1a893/WRUMvb6PxXA.jpg"
-            }
-            this._state.dialogs.ItemMessagesUsers.push(newMessage);
-            this._state.dialogs.inputMessageValue = "";
-            this.subcriber(this);
-        } else if(action.type === 'UPDATE-MESSSAGE-INPUT') {
-            this._state.dialogs.inputMessageValue = action.message;
-            this.subcriber(this);
-        }
+        this._state.profile = profile_reducer(this._state.profile, action);
+        dialogs_reducer(this._state.dialogs, action);
+        this._subcriber(store); 
     },
     getState() {
         return this._state;
     },
     subcriber(observer) {
-        this.subcriber = observer
+        this._subcriber = observer;
     }
 }
 
