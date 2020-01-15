@@ -4,7 +4,7 @@ import FriendItem from '../dialogs/friendItem/FriendItem.component';
 import DialogItemFriend from '../dialogs/dialogItemFriend/DialogItemFriend';
 import DialogItemUser from './dialogItemUser/DialogItemUser.component';
 import DialogTopWindow from './dialogsWindowTop/DialogTop.component';
-import {sendMessageActionCreate, updateMessageInputActionCreate} from '../../../redux/state';
+import {sendMessageActionCreate, updateMessageInputActionCreate} from '../../../redux/reducers/dialogs_reducer';
 
 
 const Dialogs = (props) => {

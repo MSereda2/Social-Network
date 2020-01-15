@@ -14,6 +14,7 @@ import Music from './components/pages/music/Music.component';
 import Settings from './components/pages/settings/Settings.component'
 
 const App = (props) => {
+    debugger;
    
     return(
         <BrowserRouter>
@@ -22,11 +23,11 @@ const App = (props) => {
                 <Nav state={props.state.navbar} />
                 <div className="container__wraper_page">
                     <Route path="/profile" render={() => (<Profile
-                     state={props.state.profile}
+                     state={props.state.profilePage}
                      dispatch={props.dispatch} />)} />
 
                     <Route path="/dialogs" render={() => (<Dialogs 
-                    state={props.state.dialogs}
+                    state={props.state.dialogsPage}
                     dispatch={props.dispatch} />)} />
                     <Route path="/news" component={News} />
                     <Route path="/music" component={Music} />

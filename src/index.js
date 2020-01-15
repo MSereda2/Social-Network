@@ -1,4 +1,4 @@
-import store from './redux/state';
+import store from './redux/redux_store';
 import '../node_modules/font-awesome/css/font-awesome.min.css'; 
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -8,12 +8,16 @@ import * as serviceWorker from './serviceWorker';
 
 
 const renderEntireTree = (store) => {
+    debugger;
+
     ReactDOM.render(<App state={store.getState()} dispatch={store.dispatch.bind(store)}  />, document.getElementById('root'));
 }
 
 renderEntireTree(store);
 
-store.subcriber(renderEntireTree); // pattern observer
+store.subscribe(() => {
+    renderEntireTree(store);
+}); // pattern observer
 
 
 

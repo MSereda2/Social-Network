@@ -1,9 +1,12 @@
-import profile_reducer from './profile_reducer';
-import dialogs_reducer from './dialogs_reducer';
-const addpostType = 'ADD-POST';
-const onChangeInputType = 'UPDATE-INPUT-VALUE';
-const sendMessageType = 'SEND-MESSAGE';
-const updateMessageType = 'UPDATE-MESSSAGE-INPUT';
+import header_reducer from './reducers/header_reducer';
+import navbar_reducer from './reducers/nav_reducer';
+import profile_reducer from './reducers/profile_reducer';
+import dialogs_reducer from './reducers/dialogs_reducer';
+import news_reducer from './reducers/news_reducer';
+import music_reducer from './reducers/music_reducer';
+import settings_reducer from './reducers/settings_reducer';
+
+
 
 
 const store = {
@@ -159,8 +162,13 @@ const store = {
         }
     },
     dispatch(action) {
+        this._state.header = header_reducer(this._state.header, action);
+        this._state.navbar = navbar_reducer(this._state.navbar, action);
         this._state.profile = profile_reducer(this._state.profile, action);
-        dialogs_reducer(this._state.dialogs, action);
+        this._state.dialogs = dialogs_reducer(this._state.dialogs, action);
+        this._state.news = news_reducer(this._state.news, action);
+        this._state.music = music_reducer(this._state.music, action);
+        this._state.settings = settings_reducer(this._state.settings, action);
         this._subcriber(store); 
     },
     getState() {
@@ -170,24 +178,6 @@ const store = {
         this._subcriber = observer;
     }
 }
-
-export const addPostActionCreate = () => (
-    {type: addpostType }
-);
-
-export const onChangeInputActionCreate = (text) => (
-    {type: onChangeInputType,
-     text: text
-    }
-);
-
-export const sendMessageActionCreate = () => (
-     {type: sendMessageType }
-);
-
-export const updateMessageInputActionCreate = (text) => (
-    {type: updateMessageType, message: text}
-)
 
 export default store;
 

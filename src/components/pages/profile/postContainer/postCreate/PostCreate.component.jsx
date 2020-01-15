@@ -1,6 +1,6 @@
 import React from 'react';
 import style from "./postCreate.module.css";
-import {addPostActionCreate,onChangeInputActionCreate} from '../../../../../redux/state';
+import {addPostActionCreate,onChangeInputActionCreate} from '../../../../../redux/reducers/profile_reducer';
 
 
 const PostCreate = (props) => {
