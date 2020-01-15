@@ -8,23 +8,23 @@ import {sendMessageActionCreate, updateMessageInputActionCreate} from '../../../
 
 
 const Dialogs = (props) => {
-    const friend =  props.state.ItemMessagesFriends.map(message => (
+    const friend =  props.store.getState().dialogsPage.ItemMessagesFriends.map(message => (
         <DialogItemFriend text={message.text} img={message.img} />
     ));
-    const user = props.state.ItemMessagesUsers.map(message => (
+    const user = props.store.getState().dialogsPage.ItemMessagesUsers.map(message => (
         <DialogItemUser text={message.text} img={message.img} />
     ));
 
     
     const sendMessage = () => {
-        if(props.state.inputMessageValue) {
-            props.dispatch(sendMessageActionCreate()) 
+        if(props.store.getState().dialogsPage.inputMessageValue) {
+            props.store.dispatch(sendMessageActionCreate()) 
         }
     };
 
     const updateMessageInput = (event) => {
         let text = event.target.value;
-        props.dispatch(updateMessageInputActionCreate(text));
+        props.store.dispatch(updateMessageInputActionCreate(text));
     };
 
 
@@ -33,7 +33,7 @@ const Dialogs = (props) => {
         <div className={style.dialogs}>
 
             <div className={style.list__friends}>
-                {props.state.FriendsItemData.map(friend => (
+                {props.store.getState().dialogsPage.FriendsItemData.map(friend => (
                     <FriendItem name={friend.name} img={friend.img} id={friend.id} url={`${friend.url}/${friend.id}`} />
                 ))}
             </div>
@@ -48,7 +48,7 @@ const Dialogs = (props) => {
             </div>
 
             <div className={style.dialogs__bottom}>
-                    <input onChange={updateMessageInput} placeholder="what's on your mind?" type="text" value={props.state.inputMessageValue}/>
+                    <input onChange={updateMessageInput} placeholder="what's on your mind?" type="text" value={props.store.getState().dialogsPage.inputMessageValue}/>
                     <button onClick={sendMessage}><i className="fa fa-send"></i></button>
                 </div>
 

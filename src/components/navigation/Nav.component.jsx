@@ -7,7 +7,7 @@ import NavLinkItem from './navLink/NavLinkItem.component';
 const Nav = (props) => {
     return(
         <nav className={style.navBar}>
-            {props.state.NavLinkData.map(navItem => (
+            {props.NavLinkData.map(navItem => (
                 <NavLinkItem to={navItem.to} name={navItem.name} icon={navItem.icon} id={navItem.id} />
             ))}
         </nav>

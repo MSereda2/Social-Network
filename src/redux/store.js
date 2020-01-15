@@ -8,7 +8,6 @@ import settings_reducer from './reducers/settings_reducer';
 
 
 
-
 const store = {
     _subscriber() {
         console.log('no observer')

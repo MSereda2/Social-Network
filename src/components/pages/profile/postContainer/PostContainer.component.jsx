@@ -10,7 +10,8 @@ const PostContainer = (props) => {
     ))
     return(
         <div className={style.post}>
-            <PostCreate inputvalue={props.inputValue} dispatch={props.dispatch} />
+            
+            <PostCreate inputValue={props.inputValue} addPost={props.dispatch} changeInput={props.dispatch} />
             {PostDataItem};
         </div>
     )

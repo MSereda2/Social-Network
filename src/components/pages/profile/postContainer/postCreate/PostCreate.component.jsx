@@ -4,23 +4,25 @@ import {addPostActionCreate,onChangeInputActionCreate} from '../../../../../redu
 
 
 const PostCreate = (props) => {
-    const addPost = () => {
+    const OnAddPost = () => {
         if(props.inputvalue != '') {
-            props.dispatch(addPostActionCreate());     
+            props.addPost(addPostActionCreate());     
         }
     }
 
     const onChangeInput = (event) => {
         let text = event.target.value;
-        props.dispatch(onChangeInputActionCreate(text))
+        props.changeInput(onChangeInputActionCreate(text));
+        debugger;
+
     }
     return(
         <div className={style.post__create}>
             <p>Создать пост</p>
-            <input  onChange={onChangeInput} placeholder="What's on your mind?" type="text" value={props.inputvalue}/>
+            <input  onChange={onChangeInput} placeholder="What's on your mind?" type="text" value={props.inputValue}/>
             <div className={style.post__create_icons}>
                 <button><i className="fa fa-image"></i></button>
-                <button onClick={addPost}><i className="fa fa-send"></i></button>
+                <button onClick={OnAddPost}><i className="fa fa-send"></i></button>
             </div>
            
         </div>

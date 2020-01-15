@@ -5,12 +5,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import Provider from 'react-redux'; 
 
 
 const renderEntireTree = (store) => {
-    debugger;
-
-    ReactDOM.render(<App state={store.getState()} dispatch={store.dispatch.bind(store)}  />, document.getElementById('root'));
+    <Provider />
+         ReactDOM.render(<App store={store} dispatch={store.dispatch.bind(store)}  />, document.getElementById('root'));
+    <Provide />
 }
 
 renderEntireTree(store);
