@@ -5,13 +5,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import Provider from 'react-redux'; 
+import {Provider} from 'react-redux'; 
 
 
 const renderEntireTree = (store) => {
-    <Provider />
-         ReactDOM.render(<App store={store} dispatch={store.dispatch.bind(store)}  />, document.getElementById('root'));
-    <Provide />
+    ReactDOM.render( <App store={store} dispatch={store.dispatch.bind(store)}  />,document.getElementById('root'));
 }
 
 renderEntireTree(store);

@@ -6,7 +6,6 @@ import ProfileImg from './profileImage/ProfileImg.component';
 import ProfileInfo from './profileInfo/profileInfo.component';
 
 const Profile = (props) => {
-    debugger;
     return(
         <main className={style.profile}>
             <ProfileBack />
