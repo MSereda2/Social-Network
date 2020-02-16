@@ -9,7 +9,12 @@ import {Provider} from 'react-redux';
 
 
 const renderEntireTree = (store) => {
-    ReactDOM.render( <App store={store} dispatch={store.dispatch.bind(store)}  />,document.getElementById('root'));
+    ReactDOM.render(
+        <Provider store={store}>
+            <App />
+        </Provider>,
+        document.getElementById('root')
+    );
 }
 
 renderEntireTree(store);
@@ -17,14 +22,6 @@ renderEntireTree(store);
 store.subscribe(() => {
     renderEntireTree(store);
 }); // pattern observer
-
-
-
-
-
-
-
-
 
 
 

@@ -1,20 +1,18 @@
 import React from 'react';
 import style from "./postCreate.module.css";
-import {addPostActionCreate,onChangeInputActionCreate} from '../../../../../redux/reducers/profile_reducer';
+// import {addPostActionCreate,onChangeInputActionCreate} from '../../../../../redux/reducers/profile_reducer';
 
 
 const PostCreate = (props) => {
     const OnAddPost = () => {
         if(props.inputvalue != '') {
-            props.addPost(addPostActionCreate());     
+            props.addPost();     
         }
     }
 
     const onChangeInput = (event) => {
         let text = event.target.value;
-        props.changeInput(onChangeInputActionCreate(text));
-        debugger;
-
+        props.changeInput(text);
     }
     return(
         <div className={style.post__create}>

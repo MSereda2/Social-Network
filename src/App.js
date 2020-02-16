@@ -13,16 +13,18 @@ import News from './components/pages/news/News.component';
 import Music from './components/pages/music/Music.component';
 import Settings from './components/pages/settings/Settings.component'
 
+import {connect} from 'react-redux'
+
 const App = (props) => {
  
     return(
         <BrowserRouter>
             <div className="container">
-                <Header state={props.store.getState().header} />
-                <NavContainer state={props.store.getState().navbar} />
+                <Header header={props.header}/>
+                <NavContainer navbar={props.navbar}/>
                 <div className="container__wraper_page">
-                    <Route path="/profile" render={() => (<Profile store={props.store} />)} />
-                    <Route path="/dialogs" render={() => (<Dialogs store={props.store} />)} />
+                    <Route path="/profile" render={() => (<Profile />)} />
+                    <Route path="/dialogs" render={() => (<Dialogs />)} />
                     <Route path="/news" component={News} />
                     <Route path="/music" component={Music} />
                     <Route path="/settings" component={Settings} />
@@ -32,7 +34,17 @@ const App = (props) => {
     )
 }
 
-export default App;
+const mapStateToProps = (state) => ({
+    header: state.header,
+    navbar: state.navbar,
+
+})
+
+const mapDispatchToProps = (dispatch) => ({
+
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
 
 // component={Profile}
 // dataMessage={props.store.profile.addPost}

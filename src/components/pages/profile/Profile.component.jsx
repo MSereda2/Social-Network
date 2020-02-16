@@ -5,6 +5,11 @@ import ProfileBack from './profileBackground/profileBack.component';
 import ProfileImg from './profileImage/ProfileImg.component';
 import ProfileInfo from './profileInfo/profileInfo.component';
 
+import {connect} from 'react-redux';
+
+import {addPostActionCreate,onChangeInputActionCreate} from '../../../redux/reducers/profile_reducer';
+
+
 const Profile = (props) => {
     return(
         <main className={style.profile}>
@@ -12,11 +17,23 @@ const Profile = (props) => {
             <ProfileImg />
             <ProfileInfo />
             <PostContainer
-             PostData={props.store.getState().profilePage.PostData}
-             inputValue={props.store.getState().profilePage.newTextInput}
-             dispatch={props.store.dispatch}  />
+             PostData={props.postData}
+             inputValue={props.inputValue}
+             addPost={props.addPost}
+             changeInput={props.changeInput}  />
         </main>
     )
 }
 
-export default Profile;
+let mapStateToProps = (state) => ({
+    postData: state.profilePage.PostData,
+    inputValue: state.profilePage.newTextInput,
+})
+
+let mapDispatchToProps = (dispatch) => ({
+    addPost: () => dispatch(addPostActionCreate()),
+    changeInput: (text) => dispatch(onChangeInputActionCreate(text)),
+
+})
+
+export default connect(mapStateToProps,mapDispatchToProps)(Profile);
