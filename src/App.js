@@ -7,8 +7,8 @@ import { Route, BrowserRouter } from 'react-router-dom';
 // REACT COMPONENTS
 import Header from './components/header/Header.component';
 import NavContainer from './components/navigation/navContainer';
-import Profile from './components/pages/profile/Profile.component'
-import Dialogs from './components/pages/dialogs/Dialogs.component'
+import ProfileContainer from './components/pages/profile/ProfileContainer.component'
+import DialogContainer from './components/pages/dialogs/DialogContainer'
 import News from './components/pages/news/News.component';
 import Music from './components/pages/music/Music.component';
 import Settings from './components/pages/settings/Settings.component'
@@ -23,8 +23,8 @@ const App = (props) => {
                 <Header header={props.header}/>
                 <NavContainer navbar={props.navbar}/>
                 <div className="container__wraper_page">
-                    <Route path="/profile" render={() => (<Profile />)} />
-                    <Route path="/dialogs" render={() => (<Dialogs />)} />
+                    <Route path="/profile" render={() => (<ProfileContainer />)} />
+                    <Route path="/dialogs" render={() => (<DialogContainer />)} />
                     <Route path="/news" component={News} />
                     <Route path="/music" component={Music} />
                     <Route path="/settings" component={Settings} />

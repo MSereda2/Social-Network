@@ -8,20 +8,20 @@ import * as serviceWorker from './serviceWorker';
 import {Provider} from 'react-redux'; 
 
 
-const renderEntireTree = (store) => {
+
     ReactDOM.render(
         <Provider store={store}>
             <App />
         </Provider>,
         document.getElementById('root')
     );
-}
 
-renderEntireTree(store);
 
-store.subscribe(() => {
-    renderEntireTree(store);
-}); // pattern observer
+// renderEntireTree(store);
+
+// store.subscribe(() => {
+//     renderEntireTree(store);
+// }); // pattern observer
 
 
 

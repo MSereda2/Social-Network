@@ -10,7 +10,7 @@ import {connect} from 'react-redux';
 import {addPostActionCreate,onChangeInputActionCreate} from '../../../redux/reducers/profile_reducer';
 
 
-const Profile = (props) => {
+const ProfileContainer = (props) => {
     return(
         <main className={style.profile}>
             <ProfileBack />
@@ -31,9 +31,9 @@ let mapStateToProps = (state) => ({
 })
 
 let mapDispatchToProps = (dispatch) => ({
-    addPost: () => dispatch(addPostActionCreate()),
-    changeInput: (text) => dispatch(onChangeInputActionCreate(text)),
+    addPost: () => {dispatch(addPostActionCreate())},
+    changeInput: (text) => {dispatch(onChangeInputActionCreate(text))},
 
 })
 
-export default connect(mapStateToProps,mapDispatchToProps)(Profile);
+export default connect(mapStateToProps,mapDispatchToProps)(ProfileContainer);

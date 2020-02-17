@@ -4,27 +4,26 @@ import FriendItem from '../dialogs/friendItem/FriendItem.component';
 import DialogItemFriend from '../dialogs/dialogItemFriend/DialogItemFriend';
 import DialogItemUser from './dialogItemUser/DialogItemUser.component';
 import DialogTopWindow from './dialogsWindowTop/DialogTop.component';
-import {sendMessageActionCreate, updateMessageInputActionCreate} from '../../../redux/reducers/dialogs_reducer';
 
 
 const Dialogs = (props) => {
-    const friend =  props.store.getState().dialogsPage.ItemMessagesFriends.map(message => (
+    const friend =  props.ItemMessagesFriends.map(message => (
         <DialogItemFriend text={message.text} img={message.img} />
     ));
-    const user = props.store.getState().dialogsPage.ItemMessagesUsers.map(message => (
+    const user = props.ItemMessagesUsers.map(message => (
         <DialogItemUser text={message.text} img={message.img} />
     ));
 
     
     const sendMessage = () => {
-        if(props.store.getState().dialogsPage.inputMessageValue) {
-            props.store.dispatch(sendMessageActionCreate()) 
+        if(props.inputMessageValue) {
+            props.sendMessage() 
         }
     };
 
     const updateMessageInput = (event) => {
         let text = event.target.value;
-        props.store.dispatch(updateMessageInputActionCreate(text));
+        props.updateMessageInput(text);
     };
 
 
@@ -33,7 +32,7 @@ const Dialogs = (props) => {
         <div className={style.dialogs}>
 
             <div className={style.list__friends}>
-                {props.store.getState().dialogsPage.FriendsItemData.map(friend => (
+                {props.FriendsItemData.map(friend => (
                     <FriendItem name={friend.name} img={friend.img} id={friend.id} url={`${friend.url}/${friend.id}`} />
                 ))}
             </div>
@@ -48,7 +47,7 @@ const Dialogs = (props) => {
             </div>
 
             <div className={style.dialogs__bottom}>
-                    <input onChange={updateMessageInput} placeholder="what's on your mind?" type="text" value={props.store.getState().dialogsPage.inputMessageValue}/>
+                    <input onChange={updateMessageInput} placeholder="what's on your mind?" type="text" value={props.inputMessageValue}/>
                     <button onClick={sendMessage}><i className="fa fa-send"></i></button>
                 </div>
 
