@@ -29,8 +29,9 @@ const initialState =  {
 };
 
 const profile_reducer = (state = initialState ,action) => {
+
     switch(action.type) {
-        case addpostType:
+        case addpostType: {
             let newPost = {
                 id: 3,
                 image: 'https://muz-tv.ru/storage/pic/6/6/6673d0a96eb4c1a269fca73c1d207347.jpg',
@@ -41,14 +42,19 @@ const profile_reducer = (state = initialState ,action) => {
                 likesCount: 129,
                 sharedCount: 10,
             }
-            state.PostData.push(newPost);
-            state.newTextInput = '';
-            return state;
-        case onChangeInputType:
-            state.newTextInput = action.text;
-            return state;
-        default:
-            return state;
+            let stateCopy = {...state}
+            stateCopy.PostData = [...state.PostData]
+
+            stateCopy.PostData.push(newPost);
+            stateCopy.newTextInput = '';
+            return stateCopy;
+        }
+        case onChangeInputType: {
+            let stateCopy = {...state}
+            stateCopy.newTextInput = action.text;
+            return stateCopy;}
+        default: {
+            return state;}
     }
 }
 

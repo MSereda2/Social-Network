@@ -17,7 +17,7 @@ const ProfileContainer = (props) => {
             <ProfileImg />
             <ProfileInfo />
             <PostContainer
-             PostData={props.postData}
+             PostData={props.PostData}
              inputValue={props.inputValue}
              addPost={props.addPost}
              changeInput={props.changeInput}  />
@@ -26,13 +26,17 @@ const ProfileContainer = (props) => {
 }
 
 let mapStateToProps = (state) => ({
-    postData: state.profilePage.PostData,
+    PostData: state.profilePage.PostData,
     inputValue: state.profilePage.newTextInput,
 })
 
 let mapDispatchToProps = (dispatch) => ({
-    addPost: () => {dispatch(addPostActionCreate())},
-    changeInput: (text) => {dispatch(onChangeInputActionCreate(text))},
+    addPost: () => {
+        dispatch(addPostActionCreate())
+    },
+    changeInput: (text) => {
+        dispatch(onChangeInputActionCreate(text))
+    },
 
 })
 

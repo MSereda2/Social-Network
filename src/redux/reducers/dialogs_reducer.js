@@ -75,19 +75,29 @@ const initialState =  {
 };
 
 export const dialogs_reducer = (state = initialState, action) => {
+
     switch(action.type) {
-        case sendMessageType:
+        case sendMessageType: {
             let newMessage = {
                 id: 3,
                 text: state.inputMessageValue,
                 img: "https://sun9-3.userapi.com/c840727/v840727923/1a893/WRUMvb6PxXA.jpg"
             }
-            state.ItemMessagesUsers.push(newMessage);
-            state.inputMessageValue = "";
-            return state;
-        case updateMessageType:
-            state.inputMessageValue = action.message;
-            return state;
+            return {
+                ...state,
+                inputMessageValue: "",
+                ItemMessagesUsers: [...state.ItemMessagesUsers, newMessage]
+            }
+            // stateCopy.ItemMessagesUsers.push(newMessage);
+            // stateCopy.inputMessageValue = "";
+        }
+        case updateMessageType: {
+            return {
+                ...state,
+                inputMessageValue: action.message
+            }
+            // stateCopy.inputMessageValue = action.message;
+        }
         default:
             return state;
     }

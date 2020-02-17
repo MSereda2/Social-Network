@@ -5,11 +5,13 @@ import style from "./postCreate.module.css";
 
 const PostCreate = (props) => {
     const OnAddPost = () => {
-        if(props.inputvalue != '') {
+        if(props.inputValue !== '') {
             props.addPost();     
+        } else {
+            console.log('dont work')
         }
     }
-
+    debugger
     const onChangeInput = (event) => {
         let text = event.target.value;
         props.changeInput(text);
