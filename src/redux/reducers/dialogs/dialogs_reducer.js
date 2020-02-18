@@ -1,5 +1,4 @@
-const sendMessageType = 'SEND-MESSAGE';
-const updateMessageType = 'UPDATE-MESSSAGE-INPUT';
+import DialogsTypes from './dialogs_types';
 
 const initialState =  {
     FriendsItemData: [
@@ -77,7 +76,7 @@ const initialState =  {
 export const dialogs_reducer = (state = initialState, action) => {
 
     switch(action.type) {
-        case sendMessageType: {
+        case DialogsTypes.SEND_MESSAGE: {
             let newMessage = {
                 id: 3,
                 text: state.inputMessageValue,
@@ -88,10 +87,9 @@ export const dialogs_reducer = (state = initialState, action) => {
                 inputMessageValue: "",
                 ItemMessagesUsers: [...state.ItemMessagesUsers, newMessage]
             }
-            // stateCopy.ItemMessagesUsers.push(newMessage);
-            // stateCopy.inputMessageValue = "";
+           
         }
-        case updateMessageType: {
+        case DialogsTypes.UPDATE_MESSAGE: {
             return {
                 ...state,
                 inputMessageValue: action.message
@@ -103,12 +101,5 @@ export const dialogs_reducer = (state = initialState, action) => {
     }
 }
 
-export const sendMessageActionCreate = () => (
-    {type: sendMessageType }
-);
-
-export const updateMessageInputActionCreate = (text) => (
-   {type: updateMessageType, message: text}
-)
 
 export default dialogs_reducer;

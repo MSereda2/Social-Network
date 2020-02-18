@@ -1,7 +1,7 @@
 import React from 'react';
 import Dialogs from './Dialogs.component';
 
-import {sendMessageActionCreate, updateMessageInputActionCreate} from '../../../redux/reducers/dialogs_reducer';
+import {sendMessageActionCreate, updateMessageInputActionCreate} from '../../../redux/reducers/dialogs/dialogs_actions';
 
 
 import {connect} from 'react-redux';
