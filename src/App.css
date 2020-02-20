@@ -29,7 +29,7 @@ body {
 
 
 .container__wraper_page {
-    background-color: rgb(238, 235, 235);
+    background-color: rgba(238, 238, 238, 0.315);
     grid-area: profile;
 }
 

@@ -9,7 +9,7 @@ import Header from './components/header/Header.component';
 import NavContainer from './components/navigation/navContainer';
 import ProfileContainer from './components/pages/profile/ProfileContainer.component'
 import DialogContainer from './components/pages/dialogs/DialogContainer'
-import News from './components/pages/news/News.component';
+import UsersContainer from './components/pages/Users/UserContainer';
 import Music from './components/pages/music/Music.component';
 import Settings from './components/pages/settings/Settings.component'
 
@@ -25,7 +25,7 @@ const App = (props) => {
                 <div className="container__wraper_page">
                     <Route path="/profile" render={() => (<ProfileContainer />)} />
                     <Route path="/dialogs" render={() => (<DialogContainer />)} />
-                    <Route path="/news" component={News} />
+                    <Route path="/Users" render={() => (<UsersContainer />)} />
                     <Route path="/music" component={Music} />
                     <Route path="/settings" component={Settings} />
                 </div>

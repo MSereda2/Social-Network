@@ -14,8 +14,8 @@ const initialState =  {
         },
         {
             id: 3,
-            to: '/news',
-            name: 'News',
+            to: '/users',
+            name: 'Users',
             icon: 'fa fa-book'
         },
         {

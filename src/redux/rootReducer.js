@@ -4,7 +4,7 @@ import header_reducer from './reducers/header_reducer';
 import navbar_reducer from './reducers/nav_reducer';
 import profile_reducer from './reducers/profile_reducer';
 import dialogs_reducer from './reducers/dialogs/dialogs_reducer';
-import news_reducer from './reducers/news_reducer';
+import users_reducer from './reducers/users/users_reducer';
 import music_reducer from './reducers/music_reducer';
 import settings_reducer from './reducers/settings_reducer';
 
@@ -14,7 +14,7 @@ const rootReducer = combineReducers({
     navbar: navbar_reducer,
     profilePage: profile_reducer,
     dialogsPage: dialogs_reducer,
-    newsPage: news_reducer,
+    usersPage: users_reducer,
     musicPage: music_reducer,
     settingsPage: settings_reducer
 })
