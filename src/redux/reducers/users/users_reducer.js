@@ -1,9 +1,7 @@
 import userTypes from './users_types';
 
 let initialState = {
-    users: [
-       
-    ]
+    users: [],
 };
 
 const user_reducer = (state = initialState, action) => {
@@ -13,7 +11,7 @@ const user_reducer = (state = initialState, action) => {
                 ...state,
                 users: state.users.map((user) => {
                     if(user.id === action.userID) {
-                        return {...user, isFollow: true}
+                        return {...user, followed: true}
                     } 
                     return user;
                 })
@@ -23,7 +21,7 @@ const user_reducer = (state = initialState, action) => {
                 ...state,
                 users: state.users.map(user => {
                     if(user.id === action.userID) {
-                        return {...user, isFollow: false}
+                        return {...user, followed : false}
                     }
                     return user
                 })
@@ -31,7 +29,7 @@ const user_reducer = (state = initialState, action) => {
         case userTypes.SET_USERS:
             return({
                 ...state,
-                users: [...state.users ,...action.users]
+                users: [...state.users , ...action.users]
             })
     }
     return state;
