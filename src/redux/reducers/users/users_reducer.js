@@ -2,6 +2,9 @@ import userTypes from './users_types';
 
 let initialState = {
     users: [],
+    pageSize: 5,
+    totalUsersCount: 0,
+    currentPage: 1
 };
 
 const user_reducer = (state = initialState, action) => {
@@ -29,7 +32,17 @@ const user_reducer = (state = initialState, action) => {
         case userTypes.SET_USERS:
             return({
                 ...state,
-                users: [...state.users , ...action.users]
+                users: [ ...action.users]
+            })
+        case userTypes.SET_CURRENTPAGE:
+            return({
+                ...state,
+                currentPage: action.page
+            })
+        case userTypes.SET_TOTALCOUNT:
+            return({
+                ...state,
+                totalUsersCount: action.counts
             })
     }
     return state;

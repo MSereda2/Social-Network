@@ -14,3 +14,13 @@ export let setUsers = (users) => ({
     type: userTypes.SET_USERS,
     users
 });
+
+export let setCurrentPage = (page) => ({
+    type: userTypes.SET_CURRENTPAGE,
+    page
+})
+
+export let setTotalCount = (counts) => ({
+    type: userTypes.SET_TOTALCOUNT,
+    counts
+})
