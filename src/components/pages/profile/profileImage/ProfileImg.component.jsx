@@ -1,11 +1,16 @@
 import React from 'react';
 import style from './ProfileImg.module.css';
+import userImg from '../../../../assets/images/UserImg.png'
+// import Preloder from '../../../common/preloder/Preloder'
 
-const ProfileImg = () => {
+const ProfileImg = (props) => {
+    // if(!props.profileImg) {
+    //     return <Preloder />
+    // }
     return(
         <div className={style.profile__info}>
-            <img className={style.profile__image} src="https://sun9-49.userapi.com/c858328/v858328755/f7db6/kF_Pi5W3Ofk.jpg" />
-            <p className={style.profile__name}>Misha sereda</p>
+            <img className={style.profile__image} src={props.profileImg ==! null ? props.profileImg : userImg} alt='profileImg' />
+            <p className={style.profile__name}>{props.profileName}</p>
         </div>
         
         

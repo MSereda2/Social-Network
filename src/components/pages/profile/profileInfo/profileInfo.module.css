@@ -21,8 +21,13 @@
     letter-spacing: 1px;
 }
 
-.profileInfoNumber {
-    padding-bottom: 5px;
-    color: black;
-    font-style: italic;
+.socialLinks {
+    display: block;
+    color: darkkhaki;
+    margin-bottom: 4px;
+}
+
+.aboutMe {
+    color: darkslateblue;
+    margin-bottom: 10px;
 }

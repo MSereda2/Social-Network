@@ -1,16 +1,22 @@
 import React from 'react';
 import style from './profileInfo.module.css';
+import Preloder from '../../../common/preloder/Preloder'
 
-const ProfileInfo = () => {
+const ProfileInfo = (props) => {
+        // if(!props.profileInfo) {
+        //     return <Preloder />
+        // }
+        let icons = {...props.contacts};
+        let arrIcons = Object.values(icons);
     return(
         <div className={style.profileInfo}>
            <div className={style.profileInfroTop}>
                <h2>About me</h2>
-               <p>Web developer</p>
+               {props.lookingForAJob === true ? <p>Ес я уже работаю)</p> : <p>ноу я еще не работаю(</p>}
            </div>
-           <div className={style.profileInfoDescription}>
-               <p className={style.profileInfoNumber}>23 Dec 1991</p>
-               <p className={style.profileInfoAboutME}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab voluptatum, incidunt facilis laboriosam dignissimos sint fugiat quam ratione quod odit, consequatur dolorem blanditiis doloremque minus, consectetur numquam ducimus quaerat laborum!</p>
+           <div>
+            <p className={style.aboutMe}>{props.aboutMe}</p>
+               {arrIcons.map(i => (<a className={style.socialLinks}>{i}</a>))}
            </div>
 
         </div>

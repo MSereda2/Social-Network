@@ -8,7 +8,7 @@ const Nav = (props) => {
     return(
         <nav className={style.navBar}>
             {props.NavLinkData.map(navItem => (
-                <NavLinkItem to={navItem.to} name={navItem.name} icon={navItem.icon} id={navItem.id} />
+                <NavLinkItem to={navItem.to} name={navItem.name} icon={navItem.icon} key={navItem.id} />
             ))}
         </nav>
     )

@@ -25,7 +25,9 @@ const initialState =  {
         
     ],
     newTextInput: '',
+    profileUsers: null
 };
+
 
 const profile_reducer = (state = initialState ,action) => {
 
@@ -53,6 +55,11 @@ const profile_reducer = (state = initialState ,action) => {
             return {
                 ...state,
                 newTextInput: action.text,
+            }
+        case Profile_types.SET_PROFILE_USERS:
+            return {
+                ...state,
+                profileUsers: action.profileUsers
             }
         default: return state;
     }

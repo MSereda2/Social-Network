@@ -1,7 +1,6 @@
 import React from "react";
 import style from "./users.module.css";
 import UserItem from './userItem/UserItem'
-import * as axios from "axios";
 
 
 let Users = (props) => {

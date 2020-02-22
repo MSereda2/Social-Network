@@ -50,8 +50,8 @@ const user_reducer = (state = initialState, action) => {
                 ...state,
                 isFetching: action.isFetching
             })
+        default: return state
     }
-    return state;
 }
 
 export default user_reducer;

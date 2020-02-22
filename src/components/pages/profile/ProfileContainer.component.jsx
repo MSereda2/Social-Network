@@ -2,45 +2,36 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-// Style
-import style from './profile.module.css';
-
 // Components
-import PostContainer from './postContainer/PostContainer.component'
-import ProfileBack from './profileBackground/profileBack.component';
-import ProfileImg from './profileImage/ProfileImg.component';
-import ProfileInfo from './profileInfo/profileInfo.component';
+import Profile from './Profile';
 
 // Actions
-import {addPost,changeInput} from '../../../redux/reducers/profile/profile_actions' ;
+import { addPost, changeInput, setProfileUsers} from '../../../redux/reducers/profile/profile_actions' ;
+import * as axios from 'axios';
 
 
 class ProfileContainer extends React.Component {
 
+    componentDidMount() {
+        axios.get(`https://social-network.samuraijs.com/api/1.0/profile/1`)
+          .then(response => {this.props.setProfileUsers(response.data)})
+    }
 
-    render() {
-        return(
-            <main className={style.profile}>
-                <ProfileBack />
-                <ProfileImg />
-                <ProfileInfo />
-                <PostContainer
-                 PostData={this.props.PostData}
-                 inputValue={this.props.inputValue}
-                 addPost={this.props.addPost}
-                 changeInput={this.props.changeInput}  />
-            </main>
-        )
-    } 
+
+    render() { 
+        
+        return( 
+            <Profile {...this.props} /> )} 
 }
+
 
 let mapStateToProps = (state) => ({
     PostData: state.profilePage.PostData,
     inputValue: state.profilePage.newTextInput,
+    profileUsers: state.profilePage.profileUsers
 })
 
 
-export default connect(mapStateToProps,{
-    addPost,
-    changeInput,
-})(ProfileContainer);
+export default connect(mapStateToProps,
+    { addPost, changeInput, setProfileUsers})
+    (ProfileContainer);
