@@ -2,21 +2,48 @@ import React from 'react';
 import style from './UserItem.module.css';
 
 import SmallImg from '../../../smalImg/SmallImg.component';
+import BtnFollowed from '../../../buttons/BtnFollowed';
 
-import UserPhoto from '../../../../assets/images/UserImg.png'
-
+import UserPhoto from '../../../../assets/images/UserImg.png';
 
 
 let UserItem = (props) => (
-    <tr className={style.userItem}>
-    <th className={style.userName}><SmallImg img={props.img !== null ? props.img : UserPhoto} /><span >{props.name}</span> </th>
-    <th>{props.location}</th>
-    <th>{props.email}</th>
-    <th>{props.phone}</th>
-
-    <th>{props.followed ? <button onClick={() => {props.Unfollow(props.id)}}>Follow</button> : <button onClick={() => {props.Follow(props.id)}}>unFollow</button> }</th>
+    <div className={style.userItem}>
+      <div className={style.userName}>
+        <SmallImg img={props.img ? props.img : UserPhoto} />
+        <h2>{props.name}</h2>
+      </div>
+      <div>
+        {props.followed 
+          ?
+         <button onClick={() => {props.Unfollow(props.id)}} className={style.button}>
+            <span>follow</span>
+            <svg>
+            <polyline className={style.o1} points="0 0, 150 0, 150 55, 0 55, 0 0"></polyline>
+            <polyline className={style.o2} points="0 0, 150 0, 150 55, 0 55, 0 0"></polyline>
+          </svg>
+         </button>
+          : 
+         <button onClick={() => {props.Follow(props.id)}} className={style.button}>
+            <span>unfollow</span>
+            <svg>
+              <polyline className={style.o1} points="0 0, 150 0, 150 55, 0 55, 0 0"></polyline>
+              <polyline className={style.o2} points="0 0, 150 0, 150 55, 0 55, 0 0"></polyline>
+            </svg>
+         </button> }
+         
+      </div>
     
-  </tr>
+  </div>
 )
 
 export default UserItem;
+
+
+
+
+
+
+
+
+ 

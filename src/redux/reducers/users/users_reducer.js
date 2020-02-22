@@ -2,9 +2,10 @@ import userTypes from './users_types';
 
 let initialState = {
     users: [],
-    pageSize: 5,
+    pageSize: 30,
     totalUsersCount: 0,
-    currentPage: 1
+    currentPage: 1,
+    isFetching: false
 };
 
 const user_reducer = (state = initialState, action) => {

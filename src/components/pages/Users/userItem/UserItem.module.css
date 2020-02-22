@@ -1,17 +1,58 @@
-tr:nth-child(even) {background-color: #f2f2f2;} 
-
-th {
-  padding: 15px;
-  text-align: left;
+.userItem {
+  display: flex;
+  padding: 0 40px;
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
+  height: 100px;
+  margin-bottom: 20px;
+  background-color: rgb(230, 230, 230);
 }
 
-tr:hover {background-color: #b8b8b8;} 
-
 .userName {
-    display: flex;
-  }
-  
-  .userName span {
-    align-self: center;
-    padding-left: 10px;
-  }
+  display: flex;
+  align-items: center;
+}
+
+
+/* BUTTON */
+.button {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+          justify-content: center;
+  cursor: pointer;
+}
+.button svg {
+  height: 55px;
+  width: 150px;
+  fill: none;
+  stroke-width: 5;
+}
+.button svg .o1 {
+  stroke: #15A8EA;
+  fill: #15A8EA;
+  -webkit-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+}
+.button svg .o2 {
+  stroke: white;
+  stroke-dasharray: 20 420;
+  stroke-dashoffset: 20;
+  -webkit-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+}
+.button span {
+  position: absolute;
+  margin: auto 0;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+.button:hover .o1 {
+  fill: rgba(21, 167, 234, 0.411);
+}
+.button:hover .o2 {
+  stroke-dashoffset: -420;
+}
