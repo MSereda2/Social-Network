@@ -1,5 +1,4 @@
-const addpostType = 'ADD-POST';
-const onChangeInputType = 'UPDATE-INPUT-VALUE';
+import Profile_types from './profile_types';
 
 const initialState =  {
     PostData: [
@@ -31,7 +30,7 @@ const initialState =  {
 const profile_reducer = (state = initialState ,action) => {
 
     switch(action.type) {
-        case addpostType: 
+        case Profile_types.ADD_POST: 
             let newPost = {
                 id: 3,
                 image: 'https://muz-tv.ru/storage/pic/6/6/6673d0a96eb4c1a269fca73c1d207347.jpg',
@@ -50,7 +49,7 @@ const profile_reducer = (state = initialState ,action) => {
 
             };
         
-        case onChangeInputType:
+        case Profile_types.UPDATE_INPUT:
             return {
                 ...state,
                 newTextInput: action.text,
@@ -59,15 +58,5 @@ const profile_reducer = (state = initialState ,action) => {
     }
     
 }
-
-export const addPostActionCreate = () => (
-    {type: addpostType }
-);
-
-export const onChangeInputActionCreate = (text) => (
-    {type: onChangeInputType,
-     text: text
-    }
-);
 
 export default profile_reducer;

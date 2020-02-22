@@ -1,28 +1,37 @@
+// Packages
 import React from 'react';
+import {connect} from 'react-redux';
+
+// Style
 import style from './profile.module.css';
+
+// Components
 import PostContainer from './postContainer/PostContainer.component'
 import ProfileBack from './profileBackground/profileBack.component';
 import ProfileImg from './profileImage/ProfileImg.component';
 import ProfileInfo from './profileInfo/profileInfo.component';
 
-import {connect} from 'react-redux';
+// Actions
+import {addPost,changeInput} from '../../../redux/reducers/profile/profile_actions' ;
 
-import {addPostActionCreate,onChangeInputActionCreate} from '../../../redux/reducers/profile_reducer';
+
+class ProfileContainer extends React.Component {
 
 
-const ProfileContainer = (props) => {
-    return(
-        <main className={style.profile}>
-            <ProfileBack />
-            <ProfileImg />
-            <ProfileInfo />
-            <PostContainer
-             PostData={props.PostData}
-             inputValue={props.inputValue}
-             addPost={props.addPost}
-             changeInput={props.changeInput}  />
-        </main>
-    )
+    render() {
+        return(
+            <main className={style.profile}>
+                <ProfileBack />
+                <ProfileImg />
+                <ProfileInfo />
+                <PostContainer
+                 PostData={this.props.PostData}
+                 inputValue={this.props.inputValue}
+                 addPost={this.props.addPost}
+                 changeInput={this.props.changeInput}  />
+            </main>
+        )
+    } 
 }
 
 let mapStateToProps = (state) => ({
@@ -30,14 +39,8 @@ let mapStateToProps = (state) => ({
     inputValue: state.profilePage.newTextInput,
 })
 
-let mapDispatchToProps = (dispatch) => ({
-    addPost: () => {
-        dispatch(addPostActionCreate())
-    },
-    changeInput: (text) => {
-        dispatch(onChangeInputActionCreate(text))
-    },
 
-})
-
-export default connect(mapStateToProps,mapDispatchToProps)(ProfileContainer);
+export default connect(mapStateToProps,{
+    addPost,
+    changeInput,
+})(ProfileContainer);
