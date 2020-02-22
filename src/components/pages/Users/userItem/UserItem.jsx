@@ -2,7 +2,6 @@ import React from 'react';
 import style from './UserItem.module.css';
 
 import SmallImg from '../../../smalImg/SmallImg.component';
-import BtnFollowed from '../../../buttons/BtnFollowed';
 
 import UserPhoto from '../../../../assets/images/UserImg.png';
 

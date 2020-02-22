@@ -45,6 +45,11 @@ const user_reducer = (state = initialState, action) => {
                 ...state,
                 totalUsersCount: action.counts
             })
+        case userTypes.TOGGLE_FETCHING:
+            return({
+                ...state,
+                isFetching: action.isFetching
+            })
     }
     return state;
 }

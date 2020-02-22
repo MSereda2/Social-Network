@@ -1,11 +1,11 @@
 import userTypes from './users_types';
 
-export let followAC = (userID) => ({
+export let follow = (userID) => ({
     type: userTypes.FOLLOW,
     userID: userID,
 });
 
-export let unfollowAC = (userID) => ({
+export let unfollow = (userID) => ({
     type: userTypes.UNFOLLOW,
     userID: userID,
 });
@@ -23,4 +23,9 @@ export let setCurrentPage = (page) => ({
 export let setTotalCount = (counts) => ({
     type: userTypes.SET_TOTALCOUNT,
     counts
+})
+
+export let toggleFetching = (fetching) => ({
+    type: userTypes.TOGGLE_FETCHING,
+    isFetching: fetching
 })
