@@ -25,6 +25,12 @@
     display: block;
     color: darkkhaki;
     margin-bottom: 4px;
+    cursor: pointer;
+    transition: .1s;
+}
+
+.socialLinks:hover {
+    color: darkslategray;
 }
 
 .aboutMe {

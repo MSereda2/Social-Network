@@ -23,7 +23,7 @@ const App = (props) => {
                 <Header header={props.header}/>
                 <NavContainer navbar={props.navbar}/>
                 <div className="container__wraper_page">
-                    <Route path="/profile" render={() => (<ProfileContainer />)} />
+                    <Route path="/profile/:userId?" render={() => (<ProfileContainer />)} />
                     <Route path="/dialogs" render={() => (<DialogContainer />)} />
                     <Route path="/Users" render={() => (<UsersContainer />)} />
                     <Route path="/music" component={Music} />

@@ -1,12 +1,9 @@
 let initialState =  {
     headerName: "Land & Word",
     headerLink: [
+
         {
-            name: 'Цели',
-            href: '#'
-        },
-        {
-            name: 'Цитаты',
+            name: 'Логин',
             href: '#'
         },
         
