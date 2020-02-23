@@ -1,13 +1,6 @@
 let initialState =  {
     headerName: "Land & Word",
-    headerLink: [
-
-        {
-            name: 'Логин',
-            href: '#'
-        },
-        
-    ]
+    headerLink: {name: 'Логин', href: '#'}
 };
 
 const header_reducer = (state = initialState, action) => {

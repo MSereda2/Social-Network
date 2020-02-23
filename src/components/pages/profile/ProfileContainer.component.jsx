@@ -10,13 +10,19 @@ import Profile from './Profile';
 import { addPost, changeInput, setProfileUsers} from '../../../redux/reducers/profile/profile_actions' ;
 import * as axios from 'axios';
 
+import Preloder from '../../common/preloder/Preloder';
+
+
 
 class ProfileContainer extends React.Component {
 
-    componentDidMount() {
+    componentDidMount = () => {
         let userId = this.props.match.params.userId;
-        if(!userId) {
-            userId = 2;
+        if(!this.props.myProfileId) {
+            return <Preloder />
+        }
+         else {
+            userId = this.props.myProfileId;
         }
         axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${userId}`)
           .then(response => {this.props.setProfileUsers(response.data)})
@@ -33,7 +39,9 @@ class ProfileContainer extends React.Component {
 let mapStateToProps = (state) => ({
     PostData: state.profilePage.PostData,
     inputValue: state.profilePage.newTextInput,
-    profileUsers: state.profilePage.profileUsers
+    profileUsers: state.profilePage.profileUsers,
+    myProfileId: state.authRedusers.userId,
+    isAuth: state.authRedusers.isAuth
 })
 
 let WithUrlDataContainerComponent =  withRouter(ProfileContainer)

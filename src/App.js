@@ -5,7 +5,7 @@ import { Route, BrowserRouter } from 'react-router-dom';
 
 
 // REACT COMPONENTS
-import Header from './components/header/Header.component';
+import HeaderContainer from './components/header/HeaderContainer';
 import NavContainer from './components/navigation/navContainer';
 import ProfileContainer from './components/pages/profile/ProfileContainer.component'
 import DialogContainer from './components/pages/dialogs/DialogContainer'
@@ -20,7 +20,7 @@ const App = (props) => {
     return(
         <BrowserRouter>
             <div className="container">
-                <Header header={props.header}/>
+                <HeaderContainer header={props.header}/>
                 <NavContainer navbar={props.navbar}/>
                 <div className="container__wraper_page">
                     <Route path="/profile/:userId?" render={() => (<ProfileContainer />)} />

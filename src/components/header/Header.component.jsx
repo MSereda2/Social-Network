@@ -1,13 +1,16 @@
 import React from "react";
 import style from './Header.module.css'
+import {NavLink} from 'react-router-dom';
+
 
 
 
 const Header =  (props) => {
     return(
         <header className={style.header}>
-            <h1 className={style.heading}>{props.header.headerName}</h1>
-            {props.header.headerLink.map((link, index) => (<a key={index} className={style.header__link} href={link.href}>{link.name}</a>))}
+            <h1 className={style.heading}>{props.headerName}</h1>
+            {props.isAuth === true ? <a href="#">{props.login}</a> : <NavLink to='/login' href="#">{props.login}login</NavLink>
+ }
         </header>
     )
 }

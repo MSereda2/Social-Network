@@ -8,6 +8,8 @@ import users_reducer from './reducers/users/users_reducer';
 import music_reducer from './reducers/music_reducer';
 import settings_reducer from './reducers/settings_reducer';
 
+import authRedusers from './reducers/auth/auth_reducer';
+
 const rootReducer = combineReducers({
     // it's like our state cause
     header: header_reducer,
@@ -16,7 +18,8 @@ const rootReducer = combineReducers({
     dialogsPage: dialogs_reducer,
     usersPage: users_reducer,
     musicPage: music_reducer,
-    settingsPage: settings_reducer
+    settingsPage: settings_reducer,
+    authRedusers
 })
 
 export default rootReducer
