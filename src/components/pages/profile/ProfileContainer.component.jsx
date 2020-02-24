@@ -10,7 +10,7 @@ import Profile from './Profile';
 import { addPost, changeInput, setProfileUsers} from '../../../redux/reducers/profile/profile_actions' ;
 import * as axios from 'axios';
 
-import {profileUser} from '../../../api/api';
+import {profileAPI} from '../../../api/api';
 
 class ProfileContainer extends React.Component {
 
@@ -19,7 +19,7 @@ class ProfileContainer extends React.Component {
         if(!this.props.profileUsers) {
            userId = 1069;
         }
-        profileUser(userId).then(response => {this.props.setProfileUsers(response.data)})
+        profileAPI.profileUser(userId).then(response => {this.props.setProfileUsers(response.data)})
     }
 
 

@@ -5,14 +5,12 @@ import Header from './Header.component'
 
 import { setUsersData } from '../../redux/reducers/auth/auth_actions';
 
-import { auth } from '../../api/api';
-
+import { authAPI } from '../../api/api';
 class HeaderContainer extends React.Component {
 
     componentDidMount = () => {
-        // We sent request to server with our cookies and server check if cookies is right then he send to us response
-       auth()
-        // if user and login right then we get response with data
+
+        authAPI.auth()
         .then(response => {
             if(response.data.resultCode === 0 ) {
                 let {id,email,login} = response.data.data;

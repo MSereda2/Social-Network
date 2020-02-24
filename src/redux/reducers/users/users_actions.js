@@ -29,3 +29,8 @@ export let toggleFetching = (fetching) => ({
     type: userTypes.TOGGLE_FETCHING,
     isFetching: fetching
 })
+
+export let toggleBtnHide = (btnHide) => ({
+    type: userTypes.TOGGLE_BTN_HIDE,
+    btnHide
+})

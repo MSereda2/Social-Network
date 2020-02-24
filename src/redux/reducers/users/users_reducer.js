@@ -5,7 +5,8 @@ let initialState = {
     pageSize: 30,
     totalUsersCount: 0,
     currentPage: 1,
-    isFetching: false
+    isFetching: false,
+    bthHide: false
 };
 
 const user_reducer = (state = initialState, action) => {
@@ -49,6 +50,11 @@ const user_reducer = (state = initialState, action) => {
             return({
                 ...state,
                 isFetching: action.isFetching
+            })
+        case userTypes.TOGGLE_BTN_HIDE:
+            return({
+                ...state,
+                btnHide: action.btnHide
             })
         default: return state
     }

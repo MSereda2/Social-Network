@@ -13,18 +13,20 @@ import {
   setUsers,
   setCurrentPage,
   setTotalCount,
-  toggleFetching
+  toggleFetching,
+  toggleBtnHide
+
 } from "../../../redux/reducers/users/users_actions";
 
 // API
-import {getUsers} from '../../../api/api'
+import { usersAPI } from '../../../api/api'
 
 class UsersContainer extends React.Component {
-  componentDidMount = () => {
 
-  getUsers(this.props.currentPage, this.props.pageSize).then(response => {
+  componentDidMount = () => {
+    this.props.toggleFetching(true);
+    usersAPI.getUsers(this.props.currentPage, this.props.pageSize).then(response => {
       if (this.props.users.length === 0) {
-        this.props.toggleFetching(true);
         this.props.toggleFetching(false);
         this.props.setUsers(response.items);
         this.props.setTotalCount(response.totalCount);
@@ -36,27 +38,19 @@ class UsersContainer extends React.Component {
   onPageChanged = (page) => {
     this.props.setCurrentPage(page)
     this.props.toggleFetching(true)
-    getUsers( page, this.props.pageSize ).then(response => {
+    usersAPI.getUsers( page, this.props.pageSize ).then(response => {
     this.props.setUsers(response.items)
     this.props.toggleFetching(false)
-
+      
     })
   } 
 
   render() {
+    
     return (
       <>
         {this.props.isFetching ? <Preloder /> : null}
-        <Users
-          totalUsersCount={this.props.totalUsersCount}
-          pageSize={this.props.pageSize}
-          users={this.props.users}
-          follow={this.props.follow}
-          unfollow={this.props.unfollow}
-          followed={this.props.followed}
-          currentPage={this.props.currentPage}
-          onPageChanged={this.onPageChanged}
-        />
+        <Users onPageChanged={this.onPageChanged} {...this.props}/>
       </>
     );
   }
@@ -67,7 +61,8 @@ let mapStateToProps = state => ({
   pageSize: state.usersPage.pageSize,
   totalUsersCount: state.usersPage.totalUsersCount,
   currentPage: state.usersPage.currentPage,
-  isFetching: state.usersPage.isFetching
+  isFetching: state.usersPage.isFetching,
+  btnHide: state.usersPage.bthHide
 });
 
 export default connect(mapStateToProps, {
@@ -76,5 +71,6 @@ export default connect(mapStateToProps, {
   setUsers,
   setCurrentPage,
   setTotalCount,
-  toggleFetching
+  toggleFetching,
+  toggleBtnHide
 })(UsersContainer);

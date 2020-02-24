@@ -21,6 +21,8 @@ let Users = props => {
           key={user.id}
           id={user.id}
           name={user.name}
+          toggleBtnHide={props.toggleBtnHide}
+          btnHide={props.btnHide}
         />
       ))}
 
@@ -37,7 +39,7 @@ let Users = props => {
           </span>
         ))}
       </div>
-    </div>
+      </div>
   );
 };
 
