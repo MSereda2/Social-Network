@@ -3,15 +3,16 @@ import {connect} from 'react-redux';
 import * as axios from 'axios';
 import Header from './Header.component'
 
-import {setUsersData} from '../../redux/reducers/auth/auth_actions'
-
+import {setUsersData} from '../../redux/reducers/auth/auth_actions';
 
 class HeaderContainer extends React.Component {
 
     componentDidMount = () => {
+        // We sent request to server with our cookies and server check if cookies is right then he send to us response
         axios.get(`https://social-network.samuraijs.com/api/1.0/auth/me`, {
             withCredentials: true,
         })
+        // if user and login right then we get response with data
         .then(response => {
             if(response.data.resultCode === 0) {
                 let {id,email,login} = response.data.data;
@@ -31,7 +32,6 @@ let mapStateToProps = (state) => ({
     headerLink: state.header.headerLink,
     isAuth: state.authRedusers.isAuth,
     login: state.authRedusers.login,
-
 })
 
 

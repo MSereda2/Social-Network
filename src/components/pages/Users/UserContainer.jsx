@@ -15,7 +15,9 @@ class UsersContainer extends React.Component {
     componentDidMount = () => {
       if(this.props.users.length === 0) {
         this.props.toggleFetching(true)
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`, {
+          withCredentials: true,
+        })
         .then(response => {
           this.props.toggleFetching(false)
          this.props.setUsers(response.data.items);
@@ -27,7 +29,9 @@ class UsersContainer extends React.Component {
     onPageChanged = (page) => {
       this.props.setCurrentPage(page)
       this.props.toggleFetching(true)
-      axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${page}&count=${this.props.pageSize}`)
+      axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${page}&count=${this.props.pageSize}`, {
+        withCredentials: true,
+      })
       .then(response => {
        this.props.setUsers(response.data.items)
        this.props.toggleFetching(false)
@@ -60,16 +64,6 @@ let mapStateToProps = (state) => ({
     currentPage: state.usersPage.currentPage,
     isFetching: state.usersPage.isFetching
 })
-
-// let mapDispatchToProps = (dispatch) => ({
-//     follow: (userID) => (dispatch(followAC(userID))),
-//     unfollow: (userID) => (dispatch(unfollowAC(userID))),
-//     setUsers: (users) => (dispatch(setUsers(users))),
-//     setCurrentPage: (page) => (dispatch(setCurrentPage(page))),
-//     setTotalCount: (counts) => (dispatch(setTotalCount(counts))),
-//     toggleFetching: (fetching) => (dispatch(toggleFetching(fetching)))
-
-// })
 
 export default connect(mapStateToProps, {
   follow,unfollow,setUsers,setCurrentPage,setTotalCount,toggleFetching

@@ -21,7 +21,7 @@ const App = (props) => {
         <BrowserRouter>
             <div className="container">
                 <HeaderContainer header={props.header}/>
-                <NavContainer navbar={props.navbar}/>
+                <NavContainer/>
                 <div className="container__wraper_page">
                     <Route path="/profile/:userId?" render={() => (<ProfileContainer />)} />
                     <Route path="/dialogs" render={() => (<DialogContainer />)} />
@@ -36,8 +36,6 @@ const App = (props) => {
 
 const mapStateToProps = (state) => ({
     header: state.header,
-    navbar: state.navbar,
-
 })
 
 const mapDispatchToProps = (dispatch) => ({

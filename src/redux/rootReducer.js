@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
 
 import header_reducer from './reducers/header_reducer';
-import navbar_reducer from './reducers/nav_reducer';
+import navbar_reducer from './reducers/nav/nav_reducer';
 import profile_reducer from './reducers/profile/profile_reducer';
 import dialogs_reducer from './reducers/dialogs/dialogs_reducer';
 import users_reducer from './reducers/users/users_reducer';

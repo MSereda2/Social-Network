@@ -1,8 +1,10 @@
+import NavTypes from './nav_types';
+
 const initialState =  {
     NavLinkData: [
         {
             id: 1,
-            to: '/profile',
+            to: '/profile/1069',
             name: 'Profile',
             icon: 'fa fa-user'
         },
@@ -35,7 +37,16 @@ const initialState =  {
 
 const nav_reducer = (state = initialState, action) => {
 
-    return state;
+    switch(action.type) {
+        case NavTypes.SET_PROFILE_ID: {
+            return {
+                ...state,
+                NavLinkData: state.NavLinkData[0].to = action.profileId
+            }
+        }
+        default: return state;
+    }
+
 }
 
 export default nav_reducer;

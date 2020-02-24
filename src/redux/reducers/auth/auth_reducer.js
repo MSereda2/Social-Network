@@ -3,7 +3,7 @@ import AuthType from './auth_types';
 let initialState = {
     userId: null,
     email: null,
-    login: null,
+    loginUser: null,
     isAuth: false    
 }
 

@@ -10,19 +10,12 @@ import Profile from './Profile';
 import { addPost, changeInput, setProfileUsers} from '../../../redux/reducers/profile/profile_actions' ;
 import * as axios from 'axios';
 
-import Preloder from '../../common/preloder/Preloder';
-
-
-
 class ProfileContainer extends React.Component {
 
     componentDidMount = () => {
         let userId = this.props.match.params.userId;
-        if(!this.props.myProfileId) {
-            return <Preloder />
-        }
-         else {
-            userId = this.props.myProfileId;
+        if(!this.props.profileUsers) {
+           userId = 1069;
         }
         axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${userId}`)
           .then(response => {this.props.setProfileUsers(response.data)})
