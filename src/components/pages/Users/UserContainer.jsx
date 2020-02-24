@@ -16,23 +16,32 @@ import {
   toggleFetching
 } from "../../../redux/reducers/users/users_actions";
 
+// API
+import {getUsers} from '../../../api/api'
+
 class UsersContainer extends React.Component {
-  // componentDidMount = () => {
+  componentDidMount = () => {
 
-  // }
+    getUsers(this.props.currentPage, this.props.pageSize).then(response => {
+      if (this.props.users.length === 0) {
+        this.props.toggleFetching(true);
+        this.props.toggleFetching(false);
+        this.props.setUsers(response.data.items);
+        this.props.setTotalCount(response.data.totalCount);
+      }
+    })
 
-  // onPageChanged = (page) => {
-  //   this.props.setCurrentPage(page)
-  //   this.props.toggleFetching(true)
-  //   axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${page}&count=${this.props.pageSize}`, {
-  //     withCredentials: true,
-  //   })
-  //   .then(response => {
-  //    this.props.setUsers(response.data.items)
-  //    this.props.toggleFetching(false)
+  }
 
-  //   })
-  // }
+  onPageChanged = (page) => {
+    this.props.setCurrentPage(page)
+    this.props.toggleFetching(true)
+    getUsers(page,this.props.pageSize).then(response => {
+    this.props.setUsers(response.data.items)
+    this.props.toggleFetching(false)
+
+    })
+  }
 
   render() {
     return (
@@ -55,12 +64,9 @@ class UsersContainer extends React.Component {
 
 let mapStateToProps = state => ({
   users: state.usersPage.users,
-
   pageSize: state.usersPage.pageSize,
-
   totalUsersCount: state.usersPage.totalUsersCount,
   currentPage: state.usersPage.currentPage,
-
   isFetching: state.usersPage.isFetching
 });
 
