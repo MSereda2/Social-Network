@@ -22,26 +22,26 @@ import {getUsers} from '../../../api/api'
 class UsersContainer extends React.Component {
   componentDidMount = () => {
 
-    getUsers(this.props.currentPage, this.props.pageSize).then(response => {
+  getUsers(this.props.currentPage, this.props.pageSize).then(response => {
       if (this.props.users.length === 0) {
         this.props.toggleFetching(true);
         this.props.toggleFetching(false);
-        this.props.setUsers(response.data.items);
-        this.props.setTotalCount(response.data.totalCount);
+        this.props.setUsers(response.items);
+        this.props.setTotalCount(response.totalCount);
       }
-    })
+  })
 
   }
 
   onPageChanged = (page) => {
     this.props.setCurrentPage(page)
     this.props.toggleFetching(true)
-    getUsers(page,this.props.pageSize).then(response => {
-    this.props.setUsers(response.data.items)
+    getUsers( page, this.props.pageSize ).then(response => {
+    this.props.setUsers(response.items)
     this.props.toggleFetching(false)
 
     })
-  }
+  } 
 
   render() {
     return (
