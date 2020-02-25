@@ -23,6 +23,7 @@ let Users = props => {
           name={user.name}
           toggleBtnHide={props.toggleBtnHide}
           btnHide={props.btnHide}
+          unfollowThunkCreator={props.unfollowThunkCreator}
           followThunkCreator={props.followThunkCreator}
         />
       ))}

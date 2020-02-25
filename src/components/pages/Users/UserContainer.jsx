@@ -13,7 +13,8 @@ import {
   setCurrentPage,
 } from "../../../redux/reducers/users/users_actions";
 
-import {getUsersThunkCreator} from '../../../redux/reducers/users/users_reducer';
+import {getUsersThunkCreator, unfollowThunkCreator, followThunkCreator
+} from '../../../redux/reducers/users/users_reducer';
 
 
 
@@ -52,6 +53,7 @@ export default connect(mapStateToProps, {
   unfollow,
   setCurrentPage,
   getUsersThunkCreator,
+  unfollowThunkCreator,
   followThunkCreator
 })(UsersContainer);
 

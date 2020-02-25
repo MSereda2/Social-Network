@@ -11,21 +11,11 @@ import { followAPI } from '../../../../api/api';
 
 let UserItem = props => {
 
-  let unfollow = () => {
-   props.followThunkCreator()
+  let unfollow = () => { props.unfollowThunkCreator(props.id) }
 
-  }
+  let follow = () => { props.followThunkCreator(props.id) }
 
-  let follow = () => {
-    props.toggleBtnHide(true)
-    followAPI.follow(props.id).then(response => {
-        if (response.data.resultCode === 0) {
-            props.Follow(props.id);
-            props.toggleBtnHide(false)
-        }
-          
-        });
-  }
+
   return(
     <div className={style.userItem}>
       <div className={style.userName}>
