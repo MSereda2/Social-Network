@@ -12,13 +12,8 @@ import { followAPI } from '../../../../api/api';
 let UserItem = props => {
 
   let unfollow = () => {
-    followAPI.unfollow(props.id).then(response => {
-      if (response.data.resultCode === 0) {
-        props.Unfollow(props.id);
-        
-      }
-      // props.toggleBtnHide(false)
-    });
+   props.followThunkCreator()
+
   }
 
   let follow = () => {

@@ -21,7 +21,7 @@ export const profileAPI = {
   profileUser: (userId) => { return instance.get(`profile/${userId}`)}
 }
 
-export let followAPI = {
+export const followAPI = {
   unfollow: (id) => { return instance.delete(`unfollow/${id}`)},
   follow: (id) => {  return instance.post(`follow/${id}`)}
 

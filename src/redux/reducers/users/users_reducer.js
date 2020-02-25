@@ -1,4 +1,11 @@
 import userTypes from './users_types';
+import { setUsers,
+    setCurrentPage,
+    setTotalCount,
+    toggleFetching,
+    } from './users_actions'
+import { usersAPI, followAPI } from '../../../api/api'
+
 
 let initialState = {
     users: [],
@@ -8,6 +15,7 @@ let initialState = {
     isFetching: false,
     bthHide: false
 };
+
 
 const user_reducer = (state = initialState, action) => {
     switch(action.type) {
@@ -57,6 +65,32 @@ const user_reducer = (state = initialState, action) => {
                 btnHide: action.btnHide
             })
         default: return state
+    }
+}
+
+export const getUsersThunkCreator = (currentPage, pageSize) => {
+
+    return (dispatch) => {
+
+        dispatch(toggleFetching(true));
+
+        usersAPI.getUsers(currentPage, pageSize).then(response => {
+            dispatch(toggleFetching(false));
+            dispatch(setUsers(response.items));
+            dispatch(setTotalCount(response.totalCount));
+      })
+    }
+}
+
+export const followThunkCreator = () => {
+
+    return (dispatch) => {
+        followAPI.unfollow(props.id).then(response => {
+            if (response.data.resultCode === 0) {
+              dispatch(Unfollow(props.id));
+              
+            }
+          });
     }
 }
 

@@ -10,39 +10,21 @@ import Preloder from "../../common/preloder/Preloder";
 import {
   follow,
   unfollow,
-  setUsers,
   setCurrentPage,
-  setTotalCount,
-  toggleFetching,
-  toggleBtnHide
-
 } from "../../../redux/reducers/users/users_actions";
 
-// API
-import { usersAPI } from '../../../api/api'
+import {getUsersThunkCreator} from '../../../redux/reducers/users/users_reducer';
+
+
 
 class UsersContainer extends React.Component {
 
   componentDidMount = () => {
-    this.props.toggleFetching(true);
-    usersAPI.getUsers(this.props.currentPage, this.props.pageSize).then(response => {
-      if (this.props.users.length === 0) {
-        this.props.toggleFetching(false);
-        this.props.setUsers(response.items);
-        this.props.setTotalCount(response.totalCount);
-      }
-  })
-
+    this.props.getUsersThunkCreator(this.props.currentPage, this.props.pageSize )
   }
 
   onPageChanged = (page) => {
-    this.props.setCurrentPage(page)
-    this.props.toggleFetching(true)
-    usersAPI.getUsers( page, this.props.pageSize ).then(response => {
-    this.props.setUsers(response.items)
-    this.props.toggleFetching(false)
-      
-    })
+    this.props.getUsersThunkCreator(page, this.props.pageSize )
   } 
 
   render() {
@@ -68,9 +50,17 @@ let mapStateToProps = state => ({
 export default connect(mapStateToProps, {
   follow,
   unfollow,
-  setUsers,
   setCurrentPage,
-  setTotalCount,
-  toggleFetching,
-  toggleBtnHide
+  getUsersThunkCreator,
+  followThunkCreator
 })(UsersContainer);
+
+
+
+// this.props.setCurrentPage(page)
+// this.props.toggleFetching(true)
+// usersAPI.getUsers( page, this.props.pageSize ).then(response => {
+// this.props.setUsers(response.items)
+// this.props.toggleFetching(false)
+  
+// })
