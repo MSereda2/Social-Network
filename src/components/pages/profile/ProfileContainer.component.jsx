@@ -10,16 +10,13 @@ import Profile from './Profile';
 import { addPost, changeInput, setProfileUsers} from '../../../redux/reducers/profile/profile_actions' ;
 import * as axios from 'axios';
 
-import {profileAPI} from '../../../api/api';
+import {profileUserThunkCreation} from '../../../redux/reducers/profile/profile_reducer'
+
 
 class ProfileContainer extends React.Component {
 
     componentDidMount = () => {
-        let userId = this.props.match.params.userId;
-        if(!this.props.profileUsers) {
-           userId = 1069;
-        }
-        profileAPI.profileUser(userId).then(response => {this.props.setProfileUsers(response.data)})
+        this.props.profileUserThunkCreation(this.props.match.params.userId, this.props.profileUsers);
     }
 
 
@@ -41,5 +38,13 @@ let mapStateToProps = (state) => ({
 let WithUrlDataContainerComponent =  withRouter(ProfileContainer)
 
 export default connect(mapStateToProps,
-    { addPost, changeInput, setProfileUsers})
+    { addPost, changeInput, setProfileUsers, profileUserThunkCreation})
     (WithUrlDataContainerComponent);
+
+
+
+    // let userId = this.props.match.params.userId;
+        // if(!this.props.profileUsers) {
+        //    userId = 1069;
+        // }
+        // profileAPI.profileUser(userId).then(response => {this.props.setProfileUsers(response.data)})

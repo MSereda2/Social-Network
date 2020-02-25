@@ -56,13 +56,3 @@ export default connect(mapStateToProps, {
   unfollowThunkCreator,
   followThunkCreator
 })(UsersContainer);
-
-
-
-// this.props.setCurrentPage(page)
-// this.props.toggleFetching(true)
-// usersAPI.getUsers( page, this.props.pageSize ).then(response => {
-// this.props.setUsers(response.items)
-// this.props.toggleFetching(false)
-  
-// })
