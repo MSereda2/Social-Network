@@ -5,7 +5,7 @@ import {authAPI} from '../../../api/api';
 export const AuthThunkCreator = () => {
 
     return (dispatch) => {
-        authAPI.auth()
+        authAPI.authMe()
         .then(response => {
             if(response.data.resultCode === 0 ) {
                 let {id,email,login} = response.data.data;

@@ -11,6 +11,7 @@ import DialogContainer from "./components/pages/dialogs/DialogContainer";
 import UsersContainer from "./components/pages/Users/UserContainer";
 import Music from "./components/pages/music/Music.component";
 import Settings from "./components/pages/settings/Settings.component";
+import Login from "./components/pages/login/Login";
 
 import { connect } from "react-redux";
 
@@ -21,7 +22,7 @@ const App = props => {
         <HeaderContainer header={props.header} />
         <NavContainer />
         <div className="container__wraper_page">
-          <Route path="/login" render={() => <h1>Login</h1>}  />
+          <Route path="/login" render={() => <Login />}  />
           <Route path="/profile/:userId?" render={() => <ProfileContainer />} />
           <Route path="/dialogs" render={() => <DialogContainer />} />
           <Route path="/Users" render={() => <UsersContainer />} />
