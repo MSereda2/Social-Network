@@ -1,7 +1,5 @@
 import Profile_types from './profile_types';
-import {setProfileUsers} from './profile_actions';
 
-import {profileAPI} from '../../../api/api';
 
 
 const initialState =  {
@@ -70,15 +68,6 @@ const profile_reducer = (state = initialState ,action) => {
     
 }
 
-export const profileUserThunkCreation = (profileID, profileUsers) => {
 
-    return (dispatch) => {
-        let userId = profileID;
-        if(!profileUsers) {
-           userId = 2;
-        }
-        profileAPI.profileUser(userId).then(response => {dispatch(setProfileUsers(response.data))})
-    }
-}
 
 export default profile_reducer;

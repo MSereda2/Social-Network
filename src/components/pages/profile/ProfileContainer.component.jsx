@@ -10,7 +10,7 @@ import Profile from './Profile';
 import { addPost, changeInput, setProfileUsers} from '../../../redux/reducers/profile/profile_actions' ;
 import * as axios from 'axios';
 
-import {profileUserThunkCreation} from '../../../redux/reducers/profile/profile_reducer'
+import {profileUserThunkCreation} from '../../../redux/reducers/profile/profile_thunk'
 
 
 class ProfileContainer extends React.Component {

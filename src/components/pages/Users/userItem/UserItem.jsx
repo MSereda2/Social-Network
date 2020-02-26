@@ -6,7 +6,6 @@ import SmallImg from "../../../smalImg/SmallImg.component";
 import UserPhoto from "../../../../assets/images/UserImg.png";
 import { NavLink } from "react-router-dom";
 
-import { followAPI } from '../../../../api/api';
 
 
 let UserItem = props => {

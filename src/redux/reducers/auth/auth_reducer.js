@@ -1,5 +1,7 @@
 import AuthType from './auth_types';
 
+
+
 let initialState = {
     userId: null,
     email: null,
@@ -18,5 +20,7 @@ const authReducer = (state = initialState, action) => {
         default: return state;
     }
 }
+
+
 
 export default authReducer;

@@ -36,10 +36,6 @@ const mapStateToProps = state => ({
   header: state.header
 });
 
-const mapDispatchToProps = dispatch => ({});
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, {})(App);
 
-// component={Profile}
-// dataMessage={props.store.profile.addPost}
-//                      updateInputValue={props.store.profile.updateInputValue}

@@ -7,14 +7,9 @@ import Users from "./Users.component";
 import Preloder from "../../common/preloder/Preloder";
 
 // Actions
-import {
-  follow,
-  unfollow,
-  setCurrentPage,
-} from "../../../redux/reducers/users/users_actions";
+import { follow, unfollow, setCurrentPage, } from "../../../redux/reducers/users/users_actions";
 
-import {getUsersThunkCreator, unfollowThunkCreator, followThunkCreator
-} from '../../../redux/reducers/users/users_reducer';
+import {getUsersThunkCreator, unfollowThunkCreator, followThunkCreator} from '../../../redux/reducers/users/users_thunk';
 
 
 
