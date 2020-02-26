@@ -22,12 +22,12 @@ const App = props => {
         <HeaderContainer header={props.header} />
         <NavContainer />
         <div className="container__wraper_page">
-          <Route path="/login" render={() => <Login />}  />
           <Route path="/profile/:userId?" render={() => <ProfileContainer />} />
           <Route path="/dialogs" render={() => <DialogContainer />} />
           <Route path="/Users" render={() => <UsersContainer />} />
           <Route path="/music" component={Music} />
           <Route path="/settings" component={Settings} />
+          <Route path="/login" render={() => <Login />}  />
         </div>
       </div>
     </BrowserRouter>

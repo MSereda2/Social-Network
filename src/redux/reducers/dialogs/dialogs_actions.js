@@ -1,9 +1,9 @@
 import DialogsTypes from './dialogs_types';
 
-export const sendMessageActionCreate = () => (
+export const sendMessageAC = () => (
     {type: DialogsTypes.SEND_MESSAGE }
 );
 
-export const updateMessageInputActionCreate = (text) => (
+export const updateMessageInputAC = (text) => (
     {type: DialogsTypes.UPDATE_MESSAGE, message: text}
  )

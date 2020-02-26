@@ -19,13 +19,13 @@ const Dialogs = (props) => {
     
     const sendMessage = () => {
         if(props.inputMessageValue) {
-            props.sendMessageActionCreate() 
+            props.sendMessageAC() 
         }
     };
 
     const updateMessageInput = (event) => {
         let text = event.target.value;
-        props.updateMessageInputActionCreate(text);
+        props.updateMessageInputAC(text);
     };
 
 

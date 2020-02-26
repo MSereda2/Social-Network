@@ -13,6 +13,7 @@ import { addPost, changeInput, setProfileUsers} from '../../../redux/reducers/pr
 import {profileUserThunkCreation} from '../../../redux/reducers/profile/profile_thunk'
 
 import {withAuthRedirect} from '../../HOC/withAuthRedirect';
+import { compose } from 'redux';
 
 
 
@@ -28,19 +29,17 @@ class ProfileContainer extends React.Component {
     } 
 }
 
-let AuthRedirectComponent = withAuthRedirect(ProfileContainer)
-
 
 let mapStateToProps = (state) => ({
     PostData: state.profilePage.PostData,
     inputValue: state.profilePage.newTextInput,
     profileUsers: state.profilePage.profileUsers,
     myProfileId: state.authRedusers.userId,
-    isAuth: state.authRedusers.isAuth
 })
 
-let WithUrlDataContainerComponent =  withRouter(AuthRedirectComponent)
 
-export default connect(mapStateToProps,
-    { addPost, changeInput, setProfileUsers, profileUserThunkCreation})
-    (WithUrlDataContainerComponent);
+export default compose(
+    connect(mapStateToProps, { addPost, changeInput, setProfileUsers, profileUserThunkCreation}),
+    withRouter,
+    withAuthRedirect
+)(ProfileContainer)
