@@ -6,6 +6,8 @@ import DialogItemUser from './dialogItemUser/DialogItemUser.component';
 import DialogTopWindow from './dialogsWindowTop/DialogTop.component';
 
 
+
+
 const Dialogs = (props) => {
     const friend =  props.ItemMessagesFriends.map(message => (
         <DialogItemFriend text={message.text} img={message.img} />
@@ -17,13 +19,13 @@ const Dialogs = (props) => {
     
     const sendMessage = () => {
         if(props.inputMessageValue) {
-            props.sendMessage() 
+            props.sendMessageActionCreate() 
         }
     };
 
     const updateMessageInput = (event) => {
         let text = event.target.value;
-        props.updateMessageInput(text);
+        props.updateMessageInputActionCreate(text);
     };
 
 

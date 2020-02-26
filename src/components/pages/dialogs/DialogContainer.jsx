@@ -6,27 +6,26 @@ import {sendMessageActionCreate, updateMessageInputActionCreate} from '../../../
 
 import {connect} from 'react-redux';
 
-let DialogContainer = (props) => (
-    <Dialogs 
-        ItemMessagesFriends={props.ItemMessagesFriends}
-        ItemMessagesUsers={props.ItemMessagesUsers}
-        inputMessageValue={props.inputMessageValue}
-        FriendsItemData={props.FriendsItemData}
-        sendMessage={props.sendMessage}
-        updateMessageInput={props.updateMessageInput} />
-)       
+import {withAuthRedirect} from '../../HOC/withAuthRedirect'
+
+
+let DialogContainer = (props) => {
+
+    return <Dialogs {...props} />
+}
+
+let AuthRedirectComponent = withAuthRedirect(DialogContainer)
 
 const MapStateToProps = (state) => ({
     ItemMessagesFriends: state.dialogsPage.ItemMessagesFriends,
     ItemMessagesUsers: state.dialogsPage.ItemMessagesUsers,
     inputMessageValue: state.dialogsPage.inputMessageValue,
-    FriendsItemData: state.dialogsPage.FriendsItemData
+    FriendsItemData: state.dialogsPage.FriendsItemData,
+    isAuth: state.authRedusers.isAuth
 })
 
-const MapDispatchToProps = (dispatch) => ({
-    sendMessage: () => {dispatch(sendMessageActionCreate())},
-    updateMessageInput: (text) => {dispatch(updateMessageInputActionCreate(text))},
 
-})
-
-export default connect(MapStateToProps, MapDispatchToProps)(DialogContainer)
+export default connect(MapStateToProps, {
+    sendMessageActionCreate,
+    updateMessageInputActionCreate
+})(AuthRedirectComponent)
