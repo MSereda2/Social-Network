@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import * as axios from 'axios';
+
+// Components
 import Header from './Header.component'
 
-import { setUsersData } from '../../redux/reducers/auth/auth_actions';
-
+// Thunk Creators
 import {AuthThunkCreator} from '../../redux/reducers/auth/auth_thunk';
 
 class HeaderContainer extends React.Component {
@@ -15,7 +15,7 @@ class HeaderContainer extends React.Component {
 
 
     render() {
-        return(<Header login={this.props.login} isAuth={this.props.isAuth} headerName={this.props.headerName} headerLink={this.props.headerLink} />)
+        return(<Header {...this.props} />)
     }
 }
 
@@ -27,4 +27,4 @@ let mapStateToProps = (state) => ({
 })
 
 
-export default connect(mapStateToProps, {setUsersData, AuthThunkCreator})(HeaderContainer);
+export default connect(mapStateToProps, {AuthThunkCreator})(HeaderContainer);

@@ -21,6 +21,7 @@ const App = props => {
         <HeaderContainer header={props.header} />
         <NavContainer />
         <div className="container__wraper_page">
+          <Route path="/login" render={() => <h1>Login</h1>}  />
           <Route path="/profile/:userId?" render={() => <ProfileContainer />} />
           <Route path="/dialogs" render={() => <DialogContainer />} />
           <Route path="/Users" render={() => <UsersContainer />} />

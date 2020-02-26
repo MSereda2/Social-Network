@@ -21,10 +21,10 @@ let Profile = (props) => {
             <ProfileImg profileImg={props.profileUsers.photos.small} profileName={props.profileUsers.fullName} />
             <ProfileInfo aboutMe={props.profileUsers.aboutMe} lookingForAJob={props.profileUsers.lookingForAJob} contacts={props.profileUsers.contacts} />
             <PostContainer
-            PostData={props.PostData}
-            inputValue={props.inputValue}
-            addPost={props.addPost}
-            changeInput={props.changeInput}  />
+                PostData={props.PostData}
+                inputValue={props.inputValue}
+                addPost={props.addPost}
+                changeInput={props.changeInput}  />
         </main>
     )
    

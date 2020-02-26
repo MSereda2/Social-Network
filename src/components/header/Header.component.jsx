@@ -10,7 +10,7 @@ const Header = props => {
         <h2>{props.login}</h2>
       ) : (
         <NavLink to="/login" href="#">
-          login
+          <h3>Login</h3>
         </NavLink>
       )}
     </header>

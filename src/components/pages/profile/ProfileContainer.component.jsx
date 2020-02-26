@@ -8,8 +8,8 @@ import Profile from './Profile';
 
 // Actions
 import { addPost, changeInput, setProfileUsers} from '../../../redux/reducers/profile/profile_actions' ;
-import * as axios from 'axios';
 
+// Thunk Creators
 import {profileUserThunkCreation} from '../../../redux/reducers/profile/profile_thunk'
 
 
@@ -20,10 +20,7 @@ class ProfileContainer extends React.Component {
     }
 
 
-    render() { 
-        
-        return( 
-            <Profile {...this.props} /> )} 
+    render() { return( <Profile {...this.props} /> )} 
 }
 
 
@@ -40,11 +37,3 @@ let WithUrlDataContainerComponent =  withRouter(ProfileContainer)
 export default connect(mapStateToProps,
     { addPost, changeInput, setProfileUsers, profileUserThunkCreation})
     (WithUrlDataContainerComponent);
-
-
-
-    // let userId = this.props.match.params.userId;
-        // if(!this.props.profileUsers) {
-        //    userId = 1069;
-        // }
-        // profileAPI.profileUser(userId).then(response => {this.props.setProfileUsers(response.data)})

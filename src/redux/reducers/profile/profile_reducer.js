@@ -51,8 +51,12 @@ const profile_reducer = (state = initialState ,action) => {
                 PostData: [...state.PostData, newPost],
                 newTextInput: '',
 
-            };
-        
+            }
+        case Profile_types.DELETE_POST:
+            return {
+                ...state,
+                PostData: state.filter()
+            }
         case Profile_types.UPDATE_INPUT:
             return {
                 ...state,
