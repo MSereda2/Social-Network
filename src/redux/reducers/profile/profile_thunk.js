@@ -5,18 +5,17 @@ import {setProfileUsers, setProfileStatus} from './profile_actions';
 export const profileUserThunkCreation = (profileID, profileUsers) => {
 
     return (dispatch) => {
-        let userId = profileID;
         if(!profileUsers) {
-           userId = 6086;
+          profileID = 6086;
         }
-        profileAPI.profileUser(userId).then(response => {dispatch(setProfileUsers(response.data))})
+        profileAPI.profileUser(profileID).then(response => {dispatch(setProfileUsers(response.data))})
     }
 }
 
 export const updateProfileStatus = (status) => {
     return (dispatch) => {
         profileAPI.updateStatus(status).then(response => {
-            if(response.resultCode === 0) { dispatch(setProfileStatus(status));}
+            if(response.data.resultCode === 0) { dispatch(setProfileStatus(status));}
         });
     }
 }
