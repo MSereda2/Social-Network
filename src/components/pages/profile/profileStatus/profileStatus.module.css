@@ -1,0 +1,18 @@
+.StatusContainer {
+    display: flex;
+    justify-content: center;
+    width: 40%;
+}
+
+.profileStatus {
+    padding: 15px;
+    font-size: 20px;
+    margin: 20px 0;
+    width: 50%;
+}
+
+.status {
+    background-color: rgb(146, 146, 146);
+    display: block;
+    font-size: 23px;
+}

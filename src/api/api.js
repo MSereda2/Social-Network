@@ -18,13 +18,14 @@ export const usersAPI = {
 }
 
 export const profileAPI = {
-  profileUser: (userId) => { return instance.get(`profile/${userId}`)}
+  updateStatus: (status) => { return instance.put(`profile/status`, { status: status })},
+  getStatus: (userId) => { return instance.get(`profile/status${userId}`) },
+  profileUser: (userId) => { return instance.get(`profile/${userId}`)},
 }
 
 export const followAPI = {
   follow: (id) => {  return instance.post(`follow/${id}`)},
   unfollow: (id) => { return instance.delete(`unfollow/${id}`)}
-
 }
 
 

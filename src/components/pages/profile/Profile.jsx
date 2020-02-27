@@ -7,7 +7,7 @@ import style from './profile.module.css';
 import PostContainer from './postContainer/PostContainer.component'
 import ProfileBack from './profileBackground/profileBack.component';
 import ProfileImg from './profileImage/ProfileImg.component';
-import ProfileInfo from './profileInfo/profileInfo.component';
+import ProfileInfo from './profileInfo/ProfileInfo.component';
 import Preloder from '../../common/preloder/Preloder';
 
 let Profile = (props) => {

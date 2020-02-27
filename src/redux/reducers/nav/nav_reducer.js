@@ -4,7 +4,7 @@ const initialState =  {
     NavLinkData: [
         {
             id: 1,
-            to: '/profile/2',
+            to: '/profile/6086',
             name: 'Profile',
             icon: 'fa fa-user'
         },
