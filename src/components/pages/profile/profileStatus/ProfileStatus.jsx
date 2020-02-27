@@ -1,11 +1,12 @@
 import React from 'react';
 import style from './profileStatus.module.css';
 
-class ProfileInfo extends React.Component {
+class ProfileStatus extends React.Component {
 
     state = {
         editMode: false,
-    }
+        status: this.props.status
+        }
 
     activeEditMode = () => {
         this.setState({
@@ -17,16 +18,35 @@ class ProfileInfo extends React.Component {
         this.setState({
             editMode: false
         })
+        this.props.updateProfileStatus(this.state.status)
+
+    }
+
+    onStatusChange = (e) => {
+        this.setState({
+            status: e.currentTarget.value
+        })   
     }
 
     render() {
         return(
             <>
                 <div className={style.StatusContainer}>
-                    {!this.state.editMode && <span className={style.status} onDoubleClick={this.activeEditMode}>{this.props.status}</span> }
+                    {!this.state.editMode &&
+                     <span
+                      className={style.status}
+                      onDoubleClick={this.activeEditMode}>
+                          {this.state.status || 'no status'}
+                    </span> }
                 </div>
                 <form action="#" className={style.StatusContainer}>
-                    {this.state.editMode &&  <input autoFocus={true} onBlur={this.canselEditMode} className={style.profileStatus} type="text" value={this.props.status}/> }
+                    {this.state.editMode && 
+                    <input
+                        value={this.state.status}
+                        onChange={this.onStatusChange}
+                        autoFocus={true} 
+                        onBlur={this.canselEditMode} 
+                        className={style.profileStatus}/> }
                 </form>
             </>
         )
@@ -34,4 +54,4 @@ class ProfileInfo extends React.Component {
    
 }
 
-export default ProfileInfo;
+export default ProfileStatus;

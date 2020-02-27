@@ -16,15 +16,12 @@ export const profileUserThunkCreation = (profileID, profileUsers) => {
 export const updateProfileStatus = (status) => {
     return (dispatch) => {
         profileAPI.updateStatus(status).then(response => {
-            if(response.resultCode === 0) {
-                dispatch(setProfileStatus(status));
-            }
+            if(response.resultCode === 0) { dispatch(setProfileStatus(status));}
         });
     }
 }
 
 export const getProfileStatus = (userId) => {
-
     return(dispatch) => {
         profileAPI.getStatus(userId).then(response => { dispatch(setProfileStatus(response.data)) })
     }

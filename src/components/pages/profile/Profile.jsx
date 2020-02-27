@@ -19,7 +19,7 @@ let Profile = (props) => {
         <main className={style.profile}>
             <ProfileBack />
             <ProfileImg profileImg={props.profileUsers.photos.small} profileName={props.profileUsers.fullName} />
-            <ProfileInfo profileStatus={props.profileStatus} aboutMe={props.profileUsers.aboutMe} lookingForAJob={props.profileUsers.lookingForAJob} contacts={props.profileUsers.contacts} />
+            <ProfileInfo updateProfileStatus={props.updateProfileStatus} profileStatus={props.profileStatus} aboutMe={props.profileUsers.aboutMe} lookingForAJob={props.profileUsers.lookingForAJob} contacts={props.profileUsers.contacts} />
             <PostContainer
                 PostData={props.PostData}
                 inputValue={props.inputValue}
