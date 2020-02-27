@@ -1,4 +1,5 @@
 import Profile_types from './profile_types';
+import ProfileTypes from './profile_types';
 
 
 
@@ -27,7 +28,8 @@ const initialState =  {
         
     ],
     newTextInput: '',
-    profileUsers: null
+    profileUsers: null,
+    profileStatus: ''
 };
 
 
@@ -66,6 +68,11 @@ const profile_reducer = (state = initialState ,action) => {
             return {
                 ...state,
                 profileUsers: action.profileUsers
+            }
+        case ProfileTypes.SET_PROFILE_STATUS:
+            return {
+                ...state,
+                profileStatus: action.status
             }
         default: return state;
     }

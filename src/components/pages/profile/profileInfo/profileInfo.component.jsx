@@ -10,7 +10,7 @@ const ProfileInfo = (props) => {
 
     return(
         <>
-            <ProfileStatus status={'helooo'} />
+            <ProfileStatus status={props.profileStatus} />
             <div className={style.profileInfo}>
                 <div className={style.profileInfroTop}>
                     <h2>About me</h2>

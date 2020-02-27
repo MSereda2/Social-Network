@@ -19,7 +19,7 @@ export const usersAPI = {
 
 export const profileAPI = {
   updateStatus: (status) => { return instance.put(`profile/status`, { status: status })},
-  getStatus: (userId) => { return instance.get(`profile/status${userId}`) },
+  getStatus: (userId) => { return instance.get(`profile/status/${userId}`) },
   profileUser: (userId) => { return instance.get(`profile/${userId}`)},
 }
 

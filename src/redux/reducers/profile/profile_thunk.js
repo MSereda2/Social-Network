@@ -1,5 +1,5 @@
 import {profileAPI} from '../../../api/api';
-import {setProfileUsers} from './profile_actions';
+import {setProfileUsers, setProfileStatus} from './profile_actions';
 
 
 export const profileUserThunkCreation = (profileID, profileUsers) => {
@@ -15,13 +15,17 @@ export const profileUserThunkCreation = (profileID, profileUsers) => {
 
 export const updateProfileStatus = (status) => {
     return (dispatch) => {
-        profileAPI.updateStatus(status).then(response => console.log(response));
+        profileAPI.updateStatus(status).then(response => {
+            if(response.resultCode === 0) {
+                dispatch(setProfileStatus(status));
+            }
+        });
     }
 }
 
 export const getProfileStatus = (userId) => {
 
     return(dispatch) => {
-        profileAPI.getStatus(userId).then(response => console.log(`profile status ${response}`))
+        profileAPI.getStatus(userId).then(response => { dispatch(setProfileStatus(response.data)) })
     }
 }

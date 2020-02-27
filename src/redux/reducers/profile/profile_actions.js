@@ -13,3 +13,8 @@ export let setProfileUsers = (profileUsers) => ({
     type: ProfileTypes.SET_PROFILE_USERS,
     profileUsers
 })
+
+export let setProfileStatus = (status) => ({
+    type: ProfileTypes.SET_PROFILE_STATUS,
+    status
+})
