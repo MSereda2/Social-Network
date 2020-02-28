@@ -27,7 +27,6 @@ const initialState =  {
         },
         
     ],
-    newTextInput: '',
     profileUsers: null,
     profileStatus: ''
 };
@@ -42,7 +41,7 @@ const profile_reducer = (state = initialState ,action) => {
                 image: 'https://muz-tv.ru/storage/pic/6/6/6673d0a96eb4c1a269fca73c1d207347.jpg',
                 name: "face",
                 visit: '50 minutes ago',
-                description: state.newTextInput,
+                description: action.postText,
                 commentsCount: 5,
                 likesCount: 129,
                 sharedCount: 10,
@@ -51,8 +50,6 @@ const profile_reducer = (state = initialState ,action) => {
             return {
                 ...state,
                 PostData: [...state.PostData, newPost],
-                newTextInput: '',
-
             }
         case Profile_types.DELETE_POST:
             return {

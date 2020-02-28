@@ -7,8 +7,10 @@ import dialogs_reducer from './reducers/dialogs/dialogs_reducer';
 import users_reducer from './reducers/users/users_reducer';
 import music_reducer from './reducers/music_reducer';
 import settings_reducer from './reducers/settings_reducer';
-
 import authRedusers from './reducers/auth/auth_reducer';
+import loginReducer from './reducers/login/login.reducer'
+
+import { reducer as formReducer } from 'redux-form'
 
 const rootReducer = combineReducers({
     // it's like our state cause
@@ -19,7 +21,9 @@ const rootReducer = combineReducers({
     usersPage: users_reducer,
     musicPage: music_reducer,
     settingsPage: settings_reducer,
-    authRedusers
+    authRedusers,
+    form: formReducer,
+    login: loginReducer
 })
 
 export default rootReducer

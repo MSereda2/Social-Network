@@ -1,12 +1,8 @@
 import ProfileTypes from './profile_types';
 
-export let addPost = () => ({
-    type: ProfileTypes.ADD_POST
-})
-
-export let changeInput = (text) => ({
-    type: ProfileTypes.UPDATE_INPUT,
-    text
+export let addPost = (postText) => ({
+    type: ProfileTypes.ADD_POST,
+    postText
 })
 
 export let setProfileUsers = (profileUsers) => ({

@@ -1,0 +1,14 @@
+.post__create_icons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: -30px;
+    padding-left: 10px;
+    padding-right: 10px;
+   
+}
+
+.post__create_icons i {
+   
+    font-size: 20px;
+    color: rgb(63, 62, 62);
+}

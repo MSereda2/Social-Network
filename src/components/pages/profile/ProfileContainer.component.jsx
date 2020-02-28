@@ -8,7 +8,7 @@ import { compose } from 'redux';
 import Profile from './Profile';
 
 // Actions
-import { addPost, changeInput, setProfileUsers} from '../../../redux/reducers/profile/profile_actions' ;
+import { addPost, setProfileUsers} from '../../../redux/reducers/profile/profile_actions' ;
 
 // Thunk Creators
 import {profileUserThunkCreation, updateProfileStatus, getProfileStatus} from '../../../redux/reducers/profile/profile_thunk'
@@ -25,10 +25,7 @@ class ProfileContainer extends React.Component {
         this.props.getProfileStatus(this.props.match.params.userId)
     }
 
-    render() {
-
-        return( <Profile {...this.props} /> )
-    } 
+    render() { return( <Profile {...this.props} /> ) } 
 }
 
 
@@ -42,7 +39,7 @@ let mapStateToProps = (state) => ({
 
 
 export default compose(
-    connect(mapStateToProps, { addPost, changeInput, setProfileUsers, profileUserThunkCreation, updateProfileStatus, getProfileStatus}),
+    connect(mapStateToProps, { addPost, setProfileUsers, profileUserThunkCreation, updateProfileStatus, getProfileStatus}),
     withRouter,
     withAuthRedirect
 )(ProfileContainer)
