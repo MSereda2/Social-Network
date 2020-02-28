@@ -1,8 +1,10 @@
 import ProfileTypes from './profile_types';
 
-export let addPost = (postText) => ({
+export let addPost = (postText,profileName, profileImg,) => ({
     type: ProfileTypes.ADD_POST,
-    postText
+    postText,
+    profileImg,
+    profileName
 })
 
 export let setProfileUsers = (profileUsers) => ({

@@ -22,9 +22,9 @@ let Profile = (props) => {
             <ProfileInfo updateProfileStatus={props.updateProfileStatus} profileStatus={props.profileStatus} aboutMe={props.profileUsers.aboutMe} lookingForAJob={props.profileUsers.lookingForAJob} contacts={props.profileUsers.contacts} />
             <PostContainer
                 PostData={props.PostData}
-                inputValue={props.inputValue}
                 addPost={props.addPost}
-                changeInput={props.changeInput}  />
+                profileName={props.profileUsers.fullName}
+                profileImg={props.profileUsers.photos.small}  />
         </main>
     )
    

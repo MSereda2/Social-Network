@@ -38,8 +38,8 @@ const profile_reducer = (state = initialState ,action) => {
         case Profile_types.ADD_POST: 
             let newPost = {
                 id: 3,
-                image: 'https://muz-tv.ru/storage/pic/6/6/6673d0a96eb4c1a269fca73c1d207347.jpg',
-                name: "face",
+                image: action.profileImg,
+                name: action.profileName,
                 visit: '50 minutes ago',
                 description: action.postText,
                 commentsCount: 5,
