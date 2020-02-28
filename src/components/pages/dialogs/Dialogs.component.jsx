@@ -48,10 +48,10 @@ const Dialogs = (props) => {
             {user}
             </div>
 
-            <div className={style.dialogs__bottom}>
+            <form className={style.dialogs__bottom}>
                     <input onChange={updateMessageInput} placeholder="what's on your mind?" type="text" value={props.inputMessageValue}/>
                     <button onClick={sendMessage}><i className="fa fa-send"></i></button>
-                </div>
+            </form>
 
             </div>
         </div>
