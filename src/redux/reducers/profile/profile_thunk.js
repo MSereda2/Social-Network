@@ -2,11 +2,11 @@ import {profileAPI} from '../../../api/api';
 import {setProfileUsers, setProfileStatus} from './profile_actions';
 
 
-export const profileUserThunkCreation = (profileID, profileUsers) => {
+export const profileUserThunkCreation = (profileID, profileUsers, myProfileId) => {
 
     return (dispatch) => {
         if(!profileUsers) {
-          profileID = 6086;
+          profileID = myProfileId;
         }
         profileAPI.profileUser(profileID).then(response => {dispatch(setProfileUsers(response.data))})
     }

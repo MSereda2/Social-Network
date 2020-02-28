@@ -21,7 +21,7 @@ import {withAuthRedirect} from '../../HOC/withAuthRedirect';
 class ProfileContainer extends React.Component {
 
     componentDidMount = () => {
-        this.props.profileUserThunkCreation(this.props.match.params.userId, this.props.profileUsers);
+        this.props.profileUserThunkCreation(this.props.match.params.userId, this.props.profileUsers, this.props.myProfileId);
         this.props.getProfileStatus(this.props.match.params.userId)
     }
 
@@ -44,5 +44,5 @@ let mapStateToProps = (state) => ({
 export default compose(
     connect(mapStateToProps, { addPost, changeInput, setProfileUsers, profileUserThunkCreation, updateProfileStatus, getProfileStatus}),
     withRouter,
-    // withAuthRedirect
+    withAuthRedirect
 )(ProfileContainer)
