@@ -41,7 +41,7 @@ let Users = props => {
           </span>
         ))}
       </div>
-      </div>
+    </div>
   );
 };
 

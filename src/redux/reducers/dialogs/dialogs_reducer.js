@@ -64,13 +64,6 @@ const initialState =  {
         
     
     ],
-    inputMessageValue: '',
-    sendMessage() {
-    },
-    updateMessageInput(message) {
-       
-    }
-  
 };
 
 export const dialogs_reducer = (state = initialState, action) => {
@@ -79,22 +72,14 @@ export const dialogs_reducer = (state = initialState, action) => {
         case DialogsTypes.SEND_MESSAGE: {
             let newMessage = {
                 id: 3,
-                text: state.inputMessageValue,
+                text: action.message,
                 img: "https://sun9-3.userapi.com/c840727/v840727923/1a893/WRUMvb6PxXA.jpg"
             }
             return {
                 ...state,
-                inputMessageValue: "",
                 ItemMessagesUsers: [...state.ItemMessagesUsers, newMessage]
             }
            
-        }
-        case DialogsTypes.UPDATE_MESSAGE: {
-            return {
-                ...state,
-                inputMessageValue: action.message
-            }
-            // stateCopy.inputMessageValue = action.message;
         }
         default:
             return state;
