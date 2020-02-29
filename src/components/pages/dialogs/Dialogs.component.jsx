@@ -35,8 +35,8 @@ const Dialogs = (props) => {
                     {friend}
                     {user}
                 </div>
-                    <SendMessageForm onSubmit={sendMessage} />
-                </div>
+                <SendMessageForm onSubmit={sendMessage} />
+            </div>
         </div>
     )
 }

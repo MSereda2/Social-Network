@@ -3,13 +3,19 @@ import style from './postCreateForm.module.css';
 
 import {reduxForm, Field} from 'redux-form';
 
+import {inputForm} from '../../../../../common/formsControl/inputForm';
+
+import {requiredField, maxLengthCreator} from '../../../../../../helpers/validators/validators'
+
+let maxLength10 = maxLengthCreator(10);
 
 let PostCreateForm = (props) => (
-    <form onSubmit={props.handleSubmit}>
-        <Field component={'input'} name={'post'} placeholder="What's on your mind?" type="text"/>
-        <div className={style.post__create_icons}>
-            <button><i className="fa fa-send"></i></button>
-        </div>
+
+    <form onSubmit={props.handleSubmit} className={`${style.form__group}`}>
+
+        <Field validate={[requiredField,maxLength10]} component={inputForm} className={style.form__field} placeholder="Name" name={"addPost"} />
+
+        <label for="name" className={style.form__label}>Name</label>
     </form>
 )
 

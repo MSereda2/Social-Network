@@ -6,7 +6,7 @@ import PostCreateForm from './PostCreateForm/PostCreateForm';
 const PostCreate = (props) => {
 
     const onSubmit = (formData) => {
-        props.addPost(formData.post, props.profileName, props.profileImg)
+        props.addPost(formData.addPost, props.profileName, props.profileImg)
     }
    
     return(
