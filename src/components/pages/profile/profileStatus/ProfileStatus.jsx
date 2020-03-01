@@ -53,7 +53,7 @@ let ProfileStatus = (props) => {
                     <span
                       className={style.status}
                       onDoubleClick={activeEditMode}>
-                          {props.status || 'nope status'}
+                          {props.status || 'nope status by now'}
                     </span> }
             </div>
             <form action="#" className={style.StatusContainer}>
