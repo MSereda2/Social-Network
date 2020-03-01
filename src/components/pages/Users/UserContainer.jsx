@@ -9,7 +9,11 @@ import Preloder from "../../common/preloder/Preloder";
 // Actions
 import { follow, unfollow, setCurrentPage, } from "../../../redux/reducers/users/users_actions";
 
+// Thunks
 import {getUsersThunkCreator, unfollowThunkCreator, followThunkCreator} from '../../../redux/reducers/users/users_thunk';
+
+// Selectors
+import {getUsers, getPageSize, getTotalUsersCount, getCurrentPage, getIsFetching, getBtnHide} from '../../../redux/reducers/users/users_selectors';
 
 
 
@@ -35,12 +39,12 @@ class UsersContainer extends React.Component {
 }
 
 let mapStateToProps = state => ({
-  users: state.usersPage.users,
-  pageSize: state.usersPage.pageSize,
-  totalUsersCount: state.usersPage.totalUsersCount,
-  currentPage: state.usersPage.currentPage,
-  isFetching: state.usersPage.isFetching,
-  btnHide: state.usersPage.bthHide
+  users: getUsers(state),
+  pageSize: getPageSize(state),
+  totalUsersCount: getTotalUsersCount(state),
+  currentPage: getCurrentPage(state),
+  isFetching: getIsFetching(state),
+  btnHide: getBtnHide(state)
 });
 
 export default connect(mapStateToProps, {
