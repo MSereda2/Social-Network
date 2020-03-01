@@ -18,8 +18,15 @@ let Profile = (props) => {
     return(
         <main className={style.profile}>
             <ProfileBack />
-            <ProfileImg profileImg={props.profileUsers.photos.small} profileName={props.profileUsers.fullName} />
-            <ProfileInfo updateProfileStatus={props.updateProfileStatus} profileStatus={props.profileStatus} aboutMe={props.profileUsers.aboutMe} lookingForAJob={props.profileUsers.lookingForAJob} contacts={props.profileUsers.contacts} />
+            <ProfileImg
+                profileImg={props.profileUsers.photos.small}
+                profileName={props.profileUsers.fullName} />
+            <ProfileInfo
+                updateProfileStatus={props.updateProfileStatus}
+                profileStatus={props.profileStatus}
+                aboutMe={props.profileUsers.aboutMe}
+                lookingForAJob={props.profileUsers.lookingForAJob}
+                contacts={props.profileUsers.contacts} />
             <PostContainer
                 PostData={props.PostData}
                 addPost={props.addPost}

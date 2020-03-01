@@ -31,7 +31,6 @@ class ProfileContainer extends React.Component {
 
 let mapStateToProps = (state) => ({
     PostData: state.profilePage.PostData,
-    inputValue: state.profilePage.newTextInput,
     profileUsers: state.profilePage.profileUsers,
     myProfileId: state.authRedusers.userId,
     profileStatus: state.profilePage.profileStatus,
