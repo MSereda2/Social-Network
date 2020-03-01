@@ -1,65 +1,72 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import style from './profileStatus.module.css';
 
-class ProfileStatus extends React.Component {
+let ProfileStatus = (props) => {
 
-    state = {
-        editMode: false,
-        status: this.props.status
-        }
+    // state = {
+    //     editMode: false,
+    //     // status: this.props.status
+    //     }
 
-    activeEditMode = () => {
-        this.setState({
-            editMode: true
-        })
+    // activeEditMode = () => {
+    //     this.setState({
+    //         editMode: true
+    //     })
+    // }
+
+    // canselEditMode = () => {
+    //     this.setState({
+    //         editMode: false
+    //     })
+    //     this.props.updateProfileStatus(this.state.status)
+
+    // }
+
+    // onStatusChange = (e) => {
+    //     this.setState({
+    //         status: e.currentTarget.value
+    //     })   
+    // }
+
+    // componentDidUpdate = (prevProps, prevState) => {
+    //     if(prevProps.status !== this.props.status) {
+    //         this.setState({
+    //             status: this.props.status
+    //         })
+    //     }
+    // }
+
+    let [editMode, setEditMode] = useState(false);
+
+    let activeEditMode = () => {
+        setEditMode(true)
     }
 
-    canselEditMode = () => {
-        this.setState({
-            editMode: false
-        })
-        this.props.updateProfileStatus(this.state.status)
-
+    let canselEditMode = () => {
+        setEditMode(false)
     }
 
-    onStatusChange = (e) => {
-        this.setState({
-            status: e.currentTarget.value
-        })   
-    }
-
-    componentDidUpdate = (prevProps, prevState) => {
-        if(prevProps.status !== this.props.status) {
-            this.setState({
-                status: this.props.status
-            })
-        }
-    }
-
-    render() {
-        return(
-            <>
-                <div className={style.StatusContainer}>
-                    {!this.state.editMode &&
-                     <span
+    return(
+        <>
+            <div className={style.StatusContainer}>
+                {!editMode &&
+                    <span
                       className={style.status}
-                      onDoubleClick={this.activeEditMode}>
-                          {this.props.status || 'no status'}
+                      onDoubleClick={activeEditMode}>
+                          {props.status || 'no status'}
                     </span> }
-                </div>
-                <form action="#" className={style.StatusContainer}>
-                    {this.state.editMode && 
+            </div>
+            <form action="#" className={style.StatusContainer}>
+                {editMode && 
                     <input
-                        value={this.state.status}
-                        onChange={this.onStatusChange}
+                        value={props.status}
+                        // onChange={onStatusChange}
                         autoFocus={true} 
-                        onBlur={this.canselEditMode} 
+                        onBlur={canselEditMode} 
                         className={style.profileStatus}/> }
-                </form>
-            </>
-        )
-    }
-   
+            </form>
+        </>
+    )   
 }
 
 export default ProfileStatus;
