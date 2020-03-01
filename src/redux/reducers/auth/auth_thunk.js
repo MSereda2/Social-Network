@@ -6,7 +6,7 @@ import {authAPI} from '../../../api/api';
 export const AuthThunkCreator = () => {
 
     return (dispatch) => {
-        authAPI.authMe()
+       return authAPI.authMe()
         .then(response => {
             if(response.data.resultCode === 0 ) {
                 console.log('work2')
@@ -15,6 +15,7 @@ export const AuthThunkCreator = () => {
             }
         })
     }
+
 }
 
 export const LoginThunkCreator = (email, password, rememberMe) => {
