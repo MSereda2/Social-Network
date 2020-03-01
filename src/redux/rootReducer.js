@@ -8,7 +8,7 @@ import users_reducer from './reducers/users/users_reducer';
 import music_reducer from './reducers/music_reducer';
 import settings_reducer from './reducers/settings_reducer';
 import authRedusers from './reducers/auth/auth_reducer';
-import loginReducer from './reducers/login/login.reducer'
+import appReducer from './reducers/app/app.reducer';
 
 import { reducer as formReducer } from 'redux-form'
 
@@ -23,7 +23,7 @@ const rootReducer = combineReducers({
     settingsPage: settings_reducer,
     authRedusers,
     form: formReducer,
-    login: loginReducer
+    app: appReducer
 })
 
 export default rootReducer

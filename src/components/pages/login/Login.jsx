@@ -1,32 +1,30 @@
 import React from "react";
 import style from "./login.module.css";
 import LoginForm from "./loginForm/LoginForm";
-import { LoginThunkCreator } from "../../../redux/reducers/login/login.thunk";
+import { LoginThunkCreator } from "../../../redux/reducers/auth/auth_thunk";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 
 let Login = props => {
   const onSubmit = formData => {
-    props.LoginThunkCreator(formData.login, formData.password);
+    props.LoginThunkCreator(formData.login, formData.password, formData.remeberMe);
   };
+
+  if(props.isAuth) {
+    return <Redirect to={`/profile/${props.userId}`} />
+  }
 
   return (
     <div>
-      {!props.isLogin ? (
-        <>
-          <h1>Login</h1>
-          <LoginForm onSubmit={onSubmit} />{" "}
-        </>
-      ) : (
-        <h1>your awesome</h1>
-      )}
+        <h1>Login</h1>
+        <LoginForm onSubmit={onSubmit} />
     </div>
   );
 };
 
 let MapStateToProps = state => ({
-  isLogin: state.login.isLogin,
-  userID: state.login.userID
-});
+  isAuth: state.authRedusers.isAuth,
+  userId: state.authRedusers.userId
+})
 
 export default connect(MapStateToProps, { LoginThunkCreator })(Login);

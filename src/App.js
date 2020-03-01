@@ -15,29 +15,43 @@ import Login from "./components/pages/login/Login";
 
 import { connect } from "react-redux";
 
-const App = props => {
-  return (
-    <BrowserRouter>
-      <div className="container">
-        <HeaderContainer header={props.header} />
-        <NavContainer />
-        <div className="container__wraper_page">
-          <Route path="/profile/:userId?" render={() => <ProfileContainer />} />
-          <Route path="/dialogs" render={() => <DialogContainer />} />
-          <Route path="/Users" render={() => <UsersContainer />} />
-          <Route path="/music" component={Music} />
-          <Route path="/settings" component={Settings} />
-          <Route path="/login" render={() => <Login />}  />
+import {AuthThunkCreator} from './redux/reducers/auth/auth_thunk';
+import {initializeApp} from './redux/reducers/app/app.thunk';
+
+
+class App extends React.Component {
+
+  componentDidMount = () => {
+    this.props.initializeApp()
+}
+
+
+  render() {
+    return (
+      <BrowserRouter>
+        <div className="container">
+          <HeaderContainer header={this.props.header} />
+          <NavContainer />
+          <div className="container__wraper_page">
+            <Route path="/profile/:userId?" render={() => <ProfileContainer />} />
+            <Route path="/dialogs" render={() => <DialogContainer />} />
+            <Route path="/Users" render={() => <UsersContainer />} />
+            <Route path="/music" component={Music} />
+            <Route path="/settings" component={Settings} />
+            <Route path="/login" render={() => <Login />}  />
+          </div>
         </div>
-      </div>
-    </BrowserRouter>
-  );
+      </BrowserRouter>
+    );
+  }
+  
 };
 
 const mapStateToProps = state => ({
-  header: state.header
+  header: state.header,
+  initialized : state.app.initialed
 });
 
 
-export default connect(mapStateToProps, {})(App);
+export default connect(mapStateToProps, {initializeApp})(App);
 

@@ -7,3 +7,10 @@
 .spanError {
     color: red;
 }
+
+.form_summary_error {
+    width: 5%;
+    border: 1px solid red;
+    padding: 5px;
+    color: red;
+}

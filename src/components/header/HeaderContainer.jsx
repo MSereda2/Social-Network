@@ -5,13 +5,11 @@ import { connect } from 'react-redux';
 import Header from './Header.component'
 
 // Thunk Creators
-import {AuthThunkCreator} from '../../redux/reducers/auth/auth_thunk';
+import { LogOutThunkCreator} from '../../redux/reducers/auth/auth_thunk';
 
 class HeaderContainer extends React.Component {
 
-    componentDidMount = () => {
-        this.props.AuthThunkCreator()
-    }
+  
 
 
     render() {
@@ -27,4 +25,4 @@ let mapStateToProps = (state) => ({
 })
 
 
-export default connect(mapStateToProps, {AuthThunkCreator})(HeaderContainer);
+export default connect(mapStateToProps, { LogOutThunkCreator})(HeaderContainer);

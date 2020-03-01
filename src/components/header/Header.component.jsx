@@ -7,7 +7,11 @@ const Header = props => {
     <header className={style.header}>
       <h1 className={style.heading}>{props.headerName}</h1>
       {props.isAuth === true ? (
-        <h2>{props.login}</h2>
+        <>
+          <button onClick={props.LogOutThunkCreator}>Logout</button>
+          <h2>{props.login}</h2>
+        </>
+       
       ) : (
         <NavLink to="/login" href="#">
           <h3>Login</h3>
