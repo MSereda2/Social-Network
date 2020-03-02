@@ -35,6 +35,7 @@ let ProfileStatus = (props) => {
     //         })
     //     }
     // }
+    console.log('render status')
 
     let [editMode, setEditMode] = useState(false);
     let [status, setStatus] = useState(props.status)

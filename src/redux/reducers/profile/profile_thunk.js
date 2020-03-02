@@ -4,8 +4,9 @@ import {setProfileUsers, setProfileStatus} from './profile_actions';
 
 export const profileUserThunkCreation = (profileID) => {
 
-    return (dispatch) => {
-        profileAPI.profileUser(profileID).then( response => {dispatch(setProfileUsers(response.data))} )
+    return async (dispatch) => {
+       const response = await profileAPI.profileUser(profileID);
+       dispatch(setProfileUsers(response.data))
     }
 }
 

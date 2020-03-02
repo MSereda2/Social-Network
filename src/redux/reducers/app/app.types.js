@@ -1,5 +1,5 @@
 const AppTypes = {
-    SET_INITIALED: 'SET_INITIALED',
+    SET_INITIALED: 'APP/SET_INITIALED',
 }
 
 export default AppTypes;
