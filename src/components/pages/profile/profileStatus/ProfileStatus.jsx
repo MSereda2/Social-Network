@@ -37,13 +37,23 @@ let ProfileStatus = (props) => {
     // }
 
     let [editMode, setEditMode] = useState(false);
+    let [status, setStatus] = useState(props.status)
+
+    useEffect( () => {
+        setStatus(props.status)
+    }, [props.status] )
 
     let activeEditMode = () => {
         setEditMode(true)
     }
 
     let canselEditMode = () => {
-        setEditMode(false)
+        setEditMode(false);
+        props.updateProfileStatus(status)
+    }
+
+    let onStatusChange = (e) => {
+        setStatus(e.currentTarget.value)
     }
 
     return(
@@ -59,8 +69,8 @@ let ProfileStatus = (props) => {
             <form action="#" className={style.StatusContainer}>
                 {editMode && 
                     <input
-                        value={props.status}
-                        // onChange={onStatusChange}
+                        value={status}
+                        onChange={onStatusChange}
                         autoFocus={true} 
                         onBlur={canselEditMode} 
                         className={style.profileStatus}/> }
