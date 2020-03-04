@@ -1,5 +1,5 @@
 let AuthType = {
-    SET_USER_DATA: 'SET_USER_DATA',
+    SET_USER_DATA: 'AUTH/SET_USER_DATA',
 
 }
 

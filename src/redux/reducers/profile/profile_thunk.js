@@ -11,15 +11,17 @@ export const profileUserThunkCreation = (profileID) => {
 }
 
 export const updateProfileStatus = (status) => {
-    return (dispatch) => {
-        profileAPI.updateStatus(status).then(response => {
-            if(response.data.resultCode === 0) { dispatch(setProfileStatus(status));}
-        });
+    return async (dispatch) => {
+
+        const response = await profileAPI.updateStatus(status);
+        if(response.data.resultCode === 0) { dispatch(setProfileStatus(status));}
+
     }
 }
 
 export const getProfileStatus = (userId) => {
-    return(dispatch) => {
-        profileAPI.getStatus(userId).then(response => { dispatch(setProfileStatus(response.data)) })
+    return async (dispatch) => {
+        const response = await profileAPI.getStatus(userId);
+        dispatch(setProfileStatus(response.data)) 
     }
 }

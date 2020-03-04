@@ -7,4 +7,4 @@ export const initializeApp = () => {
         let promiseAuth = dispatch(AuthThunkCreator());
          await Promise.all([promiseAuth])
             dispatch(setInitialed())
-        }}
+    }}

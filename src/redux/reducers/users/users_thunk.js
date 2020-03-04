@@ -10,38 +10,37 @@ import { usersAPI, followAPI } from '../../../api/api'
 
 export const getUsersThunkCreator = (currentPage, pageSize) => {
 
-    return (dispatch) => {
+    return async (dispatch) => {
 
-        dispatch(toggleFetching(true));
-        usersAPI.getUsers(currentPage, pageSize).then(response => {
+            dispatch(toggleFetching(true));
+
+            const response = await  usersAPI.getUsers(currentPage, pageSize);
+          
             dispatch(toggleFetching(false));
             dispatch(setUsers(response.items));
             dispatch(setTotalCount(response.totalCount));
             dispatch(setCurrentPage(currentPage))
-      })
     }
 }
 
 export const unfollowThunkCreator = (id) => {
 
-    return (dispatch) => {
-        followAPI.unfollow(id).then(response => {
-            if (response.data.resultCode === 0) {
-              dispatch(unfollow(id));
-              
-            }
-          });
+    return async (dispatch) => {
+        const response = await followAPI.unfollow(id);
+       
+        if (response.data.resultCode === 0) {
+            dispatch(unfollow(id)); 
+        }
     }
 }
 
 export const followThunkCreator = (id) => {
 
-    return (dispatch) => {
-        followAPI.follow(id).then(response => {
+    return async (dispatch) => {
+        const response = await followAPI.follow(id);
+        
         if (response.data.resultCode === 0) {
             dispatch(follow(id));
         }
-          
-        });
     }
 }
