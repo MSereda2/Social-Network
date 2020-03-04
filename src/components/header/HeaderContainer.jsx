@@ -7,15 +7,13 @@ import Header from './Header.component'
 // Thunk Creators
 import { LogOutThunkCreator} from '../../redux/reducers/auth/auth_thunk';
 
-class HeaderContainer extends React.Component {
+// class HeaderContainer extends React.Component {
 
   
-
-
-    render() {
-        return(<Header {...this.props} />)
-    }
-}
+//     render() {
+//         return(<Header {...this.props} />)
+//     }
+// }
 
 let mapStateToProps = (state) => ({
     headerName: state.header.headerName,
@@ -25,4 +23,4 @@ let mapStateToProps = (state) => ({
 })
 
 
-export default connect(mapStateToProps, { LogOutThunkCreator})(HeaderContainer);
+export default connect(mapStateToProps, { LogOutThunkCreator})(Header);

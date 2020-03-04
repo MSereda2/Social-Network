@@ -15,7 +15,6 @@ import Login from "./components/pages/login/Login";
 
 import { connect } from "react-redux";
 
-import {AuthThunkCreator} from './redux/reducers/auth/auth_thunk';
 import {initializeApp} from './redux/reducers/app/app.thunk';
 import Preloder from "./components/common/preloder/Preloder";
 
@@ -29,7 +28,7 @@ class App extends React.Component {
 
   render() {
     if(!this.props.initialized) { return <Preloder /> }
-    console.log(this.props.initialized)
+
     return (
       <BrowserRouter>
         <div className="container">

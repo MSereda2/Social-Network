@@ -7,20 +7,12 @@ import PostItem from './postItem/PostItem.component';
 const PostContainer = (props) => {
     console.log('render post')
     const PostDataItem = props.PostData.map(post => (
-        <PostItem
-         key={post.id}
-         Image={post.image}
-         name={post.name}
-         visit={post.visit}
-         description={post.description}
-         comments={post.commentsCount}
-         likes={post.likesCount}
-         shared={post.sharedCount}  />
+        <PostItem {...post} />
     ))
     return(
         <div className={style.post}>
             
-            <PostCreate profileName={props.profileName} profileImg={props.profileImg} inputValue={props.inputValue} addPost={props.addPost} changeInput={props.changeInput} />
+            <PostCreate {...props} />
             {PostDataItem};
         </div>
     )
