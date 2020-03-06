@@ -11,6 +11,8 @@ export const AuthThunkCreator = () => {
             if(response.data.resultCode === 0 ) {
                 let {id,email,login} = response.data.data;
                 dispatch(setUsersData(id, email, login, true));
+            } else {
+                console.log(response)
             }
     }
 
