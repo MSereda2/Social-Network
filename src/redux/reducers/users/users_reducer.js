@@ -1,4 +1,5 @@
 import userTypes from './users_types';
+import {updateObject} from '../../../helpers/reducer_helper';
 
 
 let initialState = {
@@ -16,22 +17,12 @@ const user_reducer = (state = initialState, action) => {
         case userTypes.FOLLOW: 
             return({
                 ...state,
-                users: state.users.map((user) => {
-                    if(user.id === action.userID) {
-                        return {...user, followed: true}
-                    } 
-                    return user;
-                })
+                users: updateObject(state.users, action.userID, 'id', {followed: true})
             })
         case userTypes.UNFOLLOW:
             return({
                 ...state,
-                users: state.users.map(user => {
-                    if(user.id === action.userID) {
-                        return {...user, followed: false}
-                    }
-                    return user;
-                })
+                users: updateObject(state.users, action.userID, 'id', {followed: false})
             })
         case userTypes.SET_USERS:
             return({
